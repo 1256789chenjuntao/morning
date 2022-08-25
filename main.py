@@ -40,6 +40,7 @@ def get_weather():
   retdata = json.loads(responseData)
   weather = res['retdata']
   return weather
+  return weather
 
 # 纪念日正数
 def get_memorial_days_count():
