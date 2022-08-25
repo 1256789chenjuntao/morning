@@ -40,7 +40,7 @@ def get_weather():
     responseData = res.encode('utf-8')
     retdata = json.loads(responseData)
     retadt = res['retdata']
-    weather = retadt
+    return retadt
   weather = res['retadt']
   return weather['weather'], math.floor(weather['temp']), weather['wind'], math.floor(weather['pm25']),  weather['airQuality'], math.floor(weather['high']), math.floor(weather['low'])
 
