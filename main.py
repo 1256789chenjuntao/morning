@@ -40,7 +40,7 @@ def get_weather():
     responseData = res.encode('utf-8')
     retdata = json.loads(responseData)
     weather = res['retdata']
-    return responseData
+    return weather
   return weather
 
 # 纪念日正数
