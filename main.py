@@ -36,8 +36,8 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
-  weather = res['weather'],['temp'],['wind'],['pm25'],['airQuality'],['high'],['low']
-  return weather['weather'], math.floor(weather['temp']), weather['wind'], math.floor(weather['pm25']),  weather['airQuality'], math.floor(weather['high']), math.floor(weather['low'])
+  weather = res['wea'],['tem'],['win'],['air_pm25'],['air_level'],['tem1'],['tem2']
+  return weather['wea'], math.floor(weather['tem']), weather['win'], math.floor(weather['air_pm25']),  weather['air_level'], math.floor(weather['tem1']), math.floor(weather['tem2'])
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -92,19 +92,19 @@ data = {
     "color": get_random_color()
   },
   "weather": {
-    "value": weather['weather'],
+    "value": weather['wea'],
     "color": get_random_color()
   },
   "temperature": {
-    "value": math.floor(weather['temp']),
+    "value": math.floor(weather['tem']),
     "color": get_random_color()
   },
   "highest": {
-    "value": math.floor(weather['high']),
+    "value": math.floor(weather['tem1']),
     "color": get_random_color()
   },
   "lowest": {
-    "value": math.floor(weather['low']),
+    "value": math.floor(weather['tem2']),
     "color": get_random_color()
   },
   "love_days": {
