@@ -36,12 +36,7 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
-  def get_responseData():
-    responseData = res.encode('utf-8')
-    retdata = json.loads(responseData)
-    retadt = res['retdata']
-    return retadt
-  weather = res['retadt']
+  weather = res['weather'],['temp'],['wind'],['pm25'],['airQuality'],['high'],['low']
   return weather['weather'], math.floor(weather['temp']), weather['wind'], math.floor(weather['pm25']),  weather['airQuality'], math.floor(weather['high']), math.floor(weather['low'])
 
 # 纪念日正数
