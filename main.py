@@ -36,9 +36,9 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
-  if res is None:
-    return None
-  weather = res['aqi']['list'][0]
+  responseData = res.encode('utf-8')
+  retdata = json.loads(responseData)
+  weather = res['retdata']
   return weather
 
 # 纪念日正数
