@@ -36,7 +36,7 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
-  weather = res[0]
+  weather = res[0:]
   return weather['wea']
 
 # 纪念日正数
