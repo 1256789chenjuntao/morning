@@ -37,7 +37,12 @@ def get_weather():
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
   weather = res['wea']
-  return weather
+  alarm = res['alarm']
+  aqi = res['aqi']
+  tem = res['tem']
+  tem1 = res['tem1']
+  tem2 = res['tem2']
+  return weather,alarm,aqi,tem,tem1,tem2
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -78,7 +83,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-weather = get_weather()
+weather,alarm,aqi,tem,tem1,tem2 = get_weather()
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -96,15 +101,15 @@ data = {
     "color": get_random_color()
   },
   "temperature": {
-    "value": math.floor(weather['tem']),
+    "value": math.floor(tem),
     "color": get_random_color()
   },
   "highest": {
-    "value": math.floor(weather['tem1']),
+    "value": math.floor(tem1),
     "color": get_random_color()
   },
   "lowest": {
-    "value": math.floor(weather['tem2']),
+    "value": math.floor(tem2),
     "color": get_random_color()
   },
   "love_days": {
