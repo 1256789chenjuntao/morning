@@ -77,7 +77,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-weather,alarm,aqi,win,tem,tem1,tem2 = get_weather()
+wea,alarm,aqi,win,tem,tem1,tem2 = get_weather()
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -91,7 +91,7 @@ data = {
     "color": get_random_color()
   },
   "weather": {
-    "value": weather,
+    "value": wea,
     "color": get_random_color()
   },
   "wind":{
