@@ -36,7 +36,7 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
   res = requests.get(url).json()
-  return res['wea'], res['alarm'],res['aqi'], res['win'],res['tem'], res['tem1'], res['tem2']
+  return res['wea'], res['alarm'],res['aqi'], res['win'],res['win_speed'],res['tem'], res['tem1'], res['tem2'],res['air_tips']，res['alarm']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -77,7 +77,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-weather,alarm,aqi,win,tem,tem1,tem2 = get_weather()
+weather,alarm,aqi,win,win_speed,tem,tem1,tem2,air_tips，alarm = get_weather()
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -98,8 +98,12 @@ data = {
     "value": win,
     "color": get_random_color()
   },
-  "PM25":{
-    "value": aqi['pm25'],
+  "win_speed":{
+    "value": win_speed,
+    "color": get_random_color()
+  },
+  "pm25":{
+    "value": aqi['pm25_desc'],
     "color": get_random_color()
   },
   "airQuality":{
@@ -124,6 +128,14 @@ data = {
   },
   "birthday_left": {
     "value": get_birthday_left(),
+    "color": get_random_color()
+  },
+  "air_tips": {
+    "value": air_tips,
+    "color": get_random_color()
+  },
+  "alarm": {
+    "value": alarm['alarm']
     "color": get_random_color()
   },
   "words": {
