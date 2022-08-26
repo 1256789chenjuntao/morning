@@ -77,7 +77,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-weather,alarm,aqi,win,win_speed,tem,tem1,tem2,air_tips，alarm = get_weather()
+weather,alarm,aqi,win,win_speed,tem,tem1,tem2,air_tips,alarm = get_weather()
 if weather is None:
   print('获取天气失败')
   exit(422)
