@@ -82,7 +82,7 @@ if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
-  "words1.DATA"{
+  "words1.DATA":{
     "value":"今天又是元气满满的一天 ૮ ・ﻌ・ა"
   },
   "d1":{
