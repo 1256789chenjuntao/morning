@@ -36,8 +36,8 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
-  weather = res['aqi'],['alarm']
-  return weather['air']
+  weather = res['wea']
+  return weather
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -92,7 +92,7 @@ data = {
     "color": get_random_color()
   },
   "weather": {
-    "value": weather['air'],
+    "value": weather,
     "color": get_random_color()
   },
   "temperature": {
