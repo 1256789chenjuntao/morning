@@ -125,8 +125,12 @@ data = {
     "value": city,
     "color": get_random_color()
   },
+  "week": {
+    "value": week,
+    "color": get_random_color()
+  },
   "date": {
-    "value":(today.strftime('%Y年%m月%d日'),week),
+    "value":(today.strftime('%Y年%m月%d日'),
     "color": get_random_color()
   },
   "weather": {
