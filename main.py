@@ -36,7 +36,7 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
   res = requests.get(url).json()
-  return res['wea'], res['alarm'],res['aqi'], res['win'],res['win_speed'],res['tem'], res['tem2'], res['tem1'],res['air_tips']
+  return res['week'],res['wea'], res['alarm'],res['aqi'], res['win'],res['win_speed'],res['tem'], res['tem2'], res['tem1'],res['air_tips']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -77,7 +77,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
+week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -86,47 +86,47 @@ data = {
     "value":"今天又是元气满满的一天 ૮ ・ﻌ・ა"
   },
   "d1":{
-    "value":"📅今天是："
+    "value":"今天是"
   },
   "b1":{
-    "value":"🕯距离你的生日还有"
+    "value":"距离你的生日还有:"
   },
   "p1":{
-    "value":"📈PM2.5："
+    "value":"PM2.5："
   },
   "a1":{
-    "value":"空气类型："
+    "value":"空气质量："
   },
   "c1":{
-    "value":"🏙所在城市："
+    "value":"所在城市："
   },
   "w1":{
-    "value":"🌤今天天气："
+    "value":"今天天气："
   },
   "t1":{
-    "value":"🌡当前温度："
+    "value":"当前温度："
   },
   "l1":{
     "value":"今日最低温："
   },
   "h1":{
-    "value":"⛽今日最高温："
+    "value":"今日最高温："
   },
   "1":{
     "value":"今天是相遇的第"
   },
   "wi1":{
-    "value":"🌀当前风向："
+    "value":"当前风向："
   },
   "words2.DATA":{
-    "value":"📃寄语："
+    "value":"寄语："
   },
   "city": {
     "value": city,
     "color": get_random_color()
   },
   "date": {
-    "value": today.strftime('%Y年%m月%d日'),
+    "value": today.strftime('%Y年%m月%d日'),week,
     "color": get_random_color()
   },
   "weather": {
@@ -146,7 +146,7 @@ data = {
     "color": get_random_color()
   },
   "airQuality":{
-    "value": aqi['air'],
+    "value": aqi['air_level'],
     "color": get_random_color()
   },
   "temperature": {
