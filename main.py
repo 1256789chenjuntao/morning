@@ -139,7 +139,7 @@ data = {
     "color": get_random_color()
   },
   "sunrise": {
-    "value":'sunrise',
+    "value":sunrise,
     "color": get_random_color()
   },
   "sunset": {
