@@ -138,11 +138,11 @@ data = {
     "color": get_random_color()
   },
   "sunrise": {
-    "value": res3['sunrise'],
+    "value": res2['sunrise'],
     "color": get_random_color()
   },
   "sunset": {
-    "value": res3['sunset'],
+    "value": res2['sunset'],
     "color": get_random_color()
   },
   "week": {
