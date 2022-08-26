@@ -203,7 +203,7 @@ data = {
     "color": get_random_color()
   },
   "alarm_content": {
-    "value": alarm['alarm_title'],
+    "value": alarm['alarm_content'],
     "color": get_random_color()
   },
   "words": {
