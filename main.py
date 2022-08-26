@@ -41,7 +41,7 @@ def get_weather():
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
   res2 = requests.get(url).json()
-  return res2['newslist'],res2['tips']
+  return res2['newslist']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -83,7 +83,7 @@ except WeChatClientException as e:
 
 wm = WeChatMessage(client)
 week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
-newslist,tips = get_weather_wea()
+newslist = get_weather_wea()
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -198,7 +198,7 @@ data = {
     "color": get_random_color()
   },
   "tips": {
-    "value": tips,
+    "value": newslist['tips'],
     "color": get_random_color()
   },
   "alarm_content": {
