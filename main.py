@@ -36,7 +36,7 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
-  return res['wea'], res['alarm'],res['aqi'], res['tem'], res['tem1'], res['tem2']
+  return res['wea'], res['alarm'],res['aqi'], res['win'],res['tem'], res['tem1'], res['tem2']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -77,7 +77,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-weather,alarm,aqi,tem,tem1,tem2 = get_weather()
+weather,alarm,aqi,win,tem,tem1,tem2 = get_weather()
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -92,6 +92,10 @@ data = {
   },
   "weather": {
     "value": weather,
+    "color": get_random_color()
+  },
+  "wind":{
+    "value": win,
     "color": get_random_color()
   },
   "temperature": {
