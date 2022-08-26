@@ -36,13 +36,7 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=39381872&appsecret=h1fMpbU1&city=" + city
   res = requests.get(url).json()
-  weather = res['wea']
-  alarm = res['alarm']
-  aqi = res['aqi']
-  tem = res['tem']
-  tem1 = res['tem1']
-  tem2 = res['tem2']
-  return weather, alarm, aqi, math.floor(tem['tem']), math.floor(tem1['tem1']), math.floor(tem2['tem2'])
+  return res['wea'],res['tem1']
 
 # 纪念日正数
 def get_memorial_days_count():
