@@ -35,8 +35,14 @@ def get_weather():
     print('请设置城市')
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
-  res = requests.get(url).json()
-  return res['week'],res['wea'], res['alarm'],res['aqi'], res['win'],res['win_speed'],res['tem'], res['tem2'], res['tem1'],res['air_tips']
+  res1 = requests.get(url).json()
+  return res1['week'],res1['wea'], res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
+
+def get_weather_wea():
+  url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
+  res2 = requests.get(url).json()
+  res3 = res2['newslist'][0]
+  return res3['sunrise'],res3['sunset'],res3['tips']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -78,6 +84,7 @@ except WeChatClientException as e:
 
 wm = WeChatMessage(client)
 week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
+sunrise,sunset,tips = get_weather_wea()
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -106,6 +113,12 @@ data = {
   "t1":{
     "value":"当前温度："
   },
+  "s1":{
+    "value":"日出时间："
+  },
+  "s2":{
+    "value":"日落时间："
+  },
   "l1":{
     "value":"今日最低温："
   },
@@ -123,6 +136,14 @@ data = {
   },
   "city": {
     "value": city,
+    "color": get_random_color()
+  },
+  "sunrise": {
+    "value": sunrise,
+    "color": get_random_color()
+  },
+  "sunset": {
+    "value": sunset,
     "color": get_random_color()
   },
   "week": {
@@ -177,8 +198,12 @@ data = {
     "value": air_tips,
     "color": get_random_color()
   },
+  "tips": {
+    "value": tips,
+    "color": get_random_color()
+  },
   "alarm_content": {
-    "value": alarm['alarm_content'],
+    "value": alarm['alarm_title'],
     "color": get_random_color()
   },
   "words": {
