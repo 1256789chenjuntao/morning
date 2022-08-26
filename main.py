@@ -41,7 +41,7 @@ def get_weather():
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
   res2 = requests.get(url).json()
-  res3 = res['newslist'][0]
+  res3 = res2['newslist'][0]
   return res3['sunrise'],res3['sunset'],res3['tips']
 
 # 纪念日正数
