@@ -118,7 +118,7 @@ data = {
   "wi1":{
     "value":"🌀当前风向："
   },
-  "words2.DATA"{
+  "words2.DATA":{
     "value":"📃寄语："
   },
   "city": {
