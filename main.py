@@ -85,6 +85,7 @@ except WeChatClientException as e:
 wm = WeChatMessage(client)
 week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips = get_weather_wea()
+a = datetime(sunrise), b = datetime(sunset)
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -139,11 +140,11 @@ data = {
     "color": get_random_color()
   },
   "sunrise": {
-    "value": sunrise.strftime('%H:%M'),
+    "value": a.strftime('%H:%M'),
     "color": get_random_color()
   },
   "sunset": {
-    "value": sunset.strftime('%H:%M',time.localtime()),
+    "value": b.strftime('%H:%M'),
     "color": get_random_color()
   },
   "week": {
@@ -151,7 +152,7 @@ data = {
     "color": get_random_color()
   },
   "date": {
-    "value":today.strftime('%Y年%m月%d日',time.localtime()),
+    "value":today.strftime('%Y年%m月%d日'),
     "color": get_random_color()
   },
   "weather": {
