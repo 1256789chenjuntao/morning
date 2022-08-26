@@ -35,14 +35,11 @@ def get_weather():
     print('请设置城市')
     return None
   url1 = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
-  res1 = requests.get(url).json()
-  return res1['week'],res1['wea'], res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
-
-def get_weather_wea():
-  url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
-  res2 = requests.get(url).json()
+  url2 = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
+  res1 = requests.get(url1).json()
+  res2 = requests.get(url2).json()
   res3 = res2['newslist'][0]
-  return res3['sunrise'],res3['sunset'],res3['tips']
+  return res1['week'],res1['wea'], res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips'],res3['sunrise'],res3['sunset'],res3['tips']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -83,8 +80,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
-sunrise,sunset,tips = get_weather_wea()
+week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips,sunrise,sunset,tips = get_weather()
 if weather is None:
   print('获取天气失败')
   exit(422)
