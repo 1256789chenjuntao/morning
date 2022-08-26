@@ -139,11 +139,11 @@ data = {
     "color": get_random_color()
   },
   "sunrise": {
-    "value": sunrise,strftime('%H:%M'),
+    "value": sunrise.strftime('%H:%M'),
     "color": get_random_color()
   },
   "sunset": {
-    "value": sunset,strftime('%H:%M'),
+    "value": sunset.strftime('%H:%M'),
     "color": get_random_color()
   },
   "week": {
