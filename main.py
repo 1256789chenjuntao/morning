@@ -42,7 +42,7 @@ def get_weather():
   tem = res['tem']
   tem1 = res['tem1']
   tem2 = res['tem2']
-  return weather, alarm, aqi, math.floor(tem['tem']), math.floor(tem1['tem1']), math.floor(tem2['tem2']))
+  return weather, alarm, aqi, math.floor(tem['tem']), math.floor(tem1['tem1']), math.floor(tem2['tem2'])
 
 # 纪念日正数
 def get_memorial_days_count():
