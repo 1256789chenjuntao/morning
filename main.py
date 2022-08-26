@@ -98,6 +98,14 @@ data = {
     "value": win,
     "color": get_random_color()
   },
+  "PM25":{
+    "value": aqi['pm25'],
+    "color": get_random_color()
+  },
+  "airQuality":{
+    "value": aqi['air'],
+    "color": get_random_color()
+  },
   "temperature": {
     "value": tem,
     "color": get_random_color()
