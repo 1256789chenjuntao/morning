@@ -126,8 +126,7 @@ data = {
     "color": get_random_color()
   },
   "date": {
-    "value": today.strftime('%Y年%m月%d日'),
-    "value":week,
+    "value":(today.strftime('%Y年%m月%d日'),week,)
     "color": get_random_color()
   },
   "weather": {
@@ -174,7 +173,7 @@ data = {
     "value": air_tips,
     "color": get_random_color()
   },
-  "alarm": {
+  "alarm_content": {
     "value": alarm['alarm_content'],
     "color": get_random_color()
   },
