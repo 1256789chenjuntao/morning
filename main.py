@@ -1,10 +1,10 @@
+from datetime import date, datetime, timedelta
 import math
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
 import requests
 import os
 import random
-import datetime
 
 today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
@@ -45,7 +45,6 @@ def get_weather_wea():
   return res21['sunrise'],res21['sunset'],res21['tips']
 
 def get_lunar_calendar():
-  today = datetime.datetime.now()
   date = today
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
   lunar_calendar = requests.get(url).json()
