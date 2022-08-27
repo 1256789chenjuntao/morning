@@ -94,34 +94,36 @@ except WeChatClientException as e:
 wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
+lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
+lunar_calendar = []
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
   "1":{
-    "value":" 😄"
+    "value":" "
   },
   "2":{
-    "value":" 📅"
+    "value":"📅"
   },
   "3":{
-    "value":" 🌥"
+    "value":"🌥"
   },
   "4":{
-    "value":" 🏙"
+    "value":"🏙"
   },
   "5":{
-    "value":" 🌡"
+    "value":"🌡"
   },
   "6":{
-    "value":" 🌄"
+    "value":" "
   },
   "7":{
-    "value":" 🌆"
+    "value":"🌆"
   },
   "8":{
-    "value":" 🌬"
+    "value":" "
   },
   "9":{
     "value":" 🎛"
@@ -136,13 +138,13 @@ data = {
     "value":" 👬"
   },
   "d":{
-    "value":" 🍰"
+    "value":""
   },
   "e":{
-    "value":" 🚴"
+    "value":"🚴"
   },
   "f":{
-    "value":" 👕"
+    "value":"👕"
   },
    "g":{
     "value":"📄"
@@ -172,7 +174,7 @@ data = {
     "color": get_random_color()
   },
   "nongli": {
-    "value": get_lunar_calendar(),
+    "value": lubarmonth,lunarday,jieqi,lunar_festival,festival,
     "color": get_random_color()
   },
   "wd":{
