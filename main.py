@@ -38,11 +38,12 @@ def get_weather():
   res1 = requests.get(url).json()
   return res1['week'],res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
 
+#天行数据接口
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
   res2 = requests.get(url).json()
   res21 = res2['newslist'][0]
-  return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather']
+  return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
 def get_lunar_calendar():
   date = today.strftime("%Y-%m-%d") 
@@ -91,7 +92,7 @@ except WeChatClientException as e:
 
 wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
-sunrise,sunset,tips,weather, = get_weather_wea()
+sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
@@ -170,24 +171,8 @@ data = {
     "value": weather,
     "color": get_random_color()
   },
-  "luh": {
-    "value": lubarmonth,
-    "color": get_random_color()
-  },
-  "luy": {
-    "value": lunarday,
-    "color": get_random_color()
-  },
-  "jieie": {
-    "value": jieqi,
-    "color": get_random_color()
-  },
-  "l_l": {
-    "value": lunar_festival,
-    "color": get_random_color()
-  },
-   "l": {
-    "value": festival,
+  "nongli": {
+    "value": get_lunar_calendar(),
     "color": get_random_color()
   },
   "wd":{
@@ -196,6 +181,10 @@ data = {
   },
   "win_d":{
     "value": win_speed,
+    "color": get_random_color()
+  },
+  "pop":{
+    "value": pop,
     "color": get_random_color()
   },
   "ay":{
