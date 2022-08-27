@@ -4,7 +4,7 @@ from wechatpy.client.api import WeChatMessage
 import requests
 import os
 import random
-import datetime,date
+import datetime
 
 today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
