@@ -172,15 +172,15 @@ data = {
     "value": lunarday,
     "color": get_random_color()
   },
-  "jie": {
+  "j": {
     "value": jieqi,
     "color": get_random_color()
   },
-  "l_fel": {
+  "l_l": {
     "value": lunar_festival,
     "color": get_random_color()
   },
-   "fel": {
+   "l": {
     "value": festival,
     "color": get_random_color()
   },
