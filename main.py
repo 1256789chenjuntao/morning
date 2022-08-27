@@ -95,7 +95,7 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-lunar_calendar = []
+lunar_calendar = {"value":"lubarmonth","value":"lunarday","value":"jieqi","value":"lunar_festival","value":"festival",}
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
@@ -174,7 +174,7 @@ data = {
     "color": get_random_color()
   },
   "nongli": {
-    "value": lubarmonth,lunarday,jieqi,lunar_festival,festival,
+    "value": lunar_calendar,
     "color": get_random_color()
   },
   "wd":{
