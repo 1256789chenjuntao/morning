@@ -45,7 +45,7 @@ def get_weather_wea():
   return res21['sunrise'],res21['sunset'],res21['tips']
 
 def get_lunar_calendar():
-  date = today
+  date = today.strftime("%Y-%m-%d") 
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
   lunar_calendar = requests.get(url).json()
   res3 = lunar_calendar['newslist'][0]
