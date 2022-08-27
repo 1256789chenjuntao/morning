@@ -1,4 +1,5 @@
 from datetime import date, datetime, timedelta
+from collections import defaultdict
 import math
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
@@ -95,6 +96,12 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
+d = defaultdict(set)
+d['a'].add(lubarmonth)
+d['a'].add(lunarday)
+d['a'].add(jieqi)
+d['a'].add(lunar_festival)
+d['a'].add(festival)
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
@@ -173,7 +180,7 @@ data = {
     "color": get_random_color()
   },
   "nongli": {
-    "value": get_lunar_calendar(),
+    "value": d,
     "color": get_random_color()
   },
   "wd":{
