@@ -208,11 +208,11 @@ data = {
     "color": get_random_color()
   },
   "l_ds": {
-    "value": get_memorial_days_count(),
+    "value": lubarmonth,
     "color": get_random_color()
   },
   "b_lt": {
-    "value": get_birthday_left(),
+    "value": lunarday,
     "color": get_random_color()
   },
   "a_ts": {
