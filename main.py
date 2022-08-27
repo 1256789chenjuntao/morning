@@ -174,7 +174,7 @@ data = {
     "color": get_random_color()
   },
   "nongli": {
-    "value": d,
+    "value": lubarmonth+lunarday+jieqi+lunar_festival+festival,
     "color": get_random_color()
   },
   "wd":{
