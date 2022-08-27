@@ -93,6 +93,7 @@ except WeChatClientException as e:
 wm = WeChatMessage(client)
 week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips = get_weather_wea()
+lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 if weather is None:
   print('获取天气失败')
   exit(422)
