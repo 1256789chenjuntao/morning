@@ -172,7 +172,7 @@ data = {
     "value": lunarday,
     "color": get_random_color()
   },
-  "j": {
+  "jieie": {
     "value": jieqi,
     "color": get_random_color()
   },
@@ -209,11 +209,11 @@ data = {
     "color": get_random_color()
   },
   "l_ds": {
-    "value": lubarmonth,
+    "value": get_memorial_days_count(),
     "color": get_random_color()
   },
   "b_lt": {
-    "value": lunarday,
+    "value": get_birthday_left(),
     "color": get_random_color()
   },
   "a_ts": {
