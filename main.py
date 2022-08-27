@@ -224,7 +224,7 @@ data = {
     "color": get_random_color()
   },
   "a_ct": {
-    "value": alarm['alarm_title'],
+    "value": alarm.get['alarm_title'],
     "color": get_random_color()
   },
   "ws": {
