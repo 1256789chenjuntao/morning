@@ -1,10 +1,11 @@
-from datetime import date, datetime, timedelta,time
+import date, datetime, timedelta
 import math
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
 import requests
 import os
 import random
+import datetime
 
 today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
