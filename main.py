@@ -41,8 +41,16 @@ def get_weather():
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
   res2 = requests.get(url).json()
-  res3 = res2['newslist'][0]
-  return res3['sunrise'],res3['sunset'],res3['tips']
+  res21 = res2['newslist'][0]
+  return res21['sunrise'],res21['sunset'],res21['tips']
+
+def get_lunar_calendar():
+  today = datetime.date.today()
+  date = today
+  url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
+  lunar_calendar = requests.get(url).json()
+  res3 = lunar_calendar['newslist'][0]
+  return res3['lubarmonth'],res3['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -89,124 +97,137 @@ if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
-  "words1":{
-    "value":"今天又是元气满满的一天 ૮ ・ﻌ・ა"
+  "wo1":{
+    "value":""
   },
   "d1":{
-    "value":"今天是"
+    "value":""
   },
   "b1":{
-    "value":"距离你的生日还有:"
-  },
-  "p1":{
-    "value":"PM2.5："
+    "value":""
   },
   "a1":{
-    "value":"空气质量："
+    "value":""
   },
   "c1":{
-    "value":"所在城市："
+    "value":""
   },
   "w1":{
-    "value":"今天天气："
+    "value":""
   },
   "t1":{
-    "value":"当前温度："
+    "value":""
   },
   "s1":{
-    "value":"日出时间："
+    "value":""
   },
   "s2":{
-    "value":"日落时间："
+    "value":""
   },
   "l1":{
-    "value":"今日最低温："
+    "value":""
   },
   "h1":{
-    "value":"今日最高温："
+    "value":""
   },
   "1":{
-    "value":"今天是相遇的第"
+    "value":""
   },
   "wi1":{
-    "value":"当前风向："
+    "value":""
   },
-  "words2":{
-    "value":"寄语："
+  "ws2":{
+    "value":""
   },
-  "city": {
+  "cy": {
     "value": city,
     "color": get_random_color()
   },
-  "sunrise": {
+  "se": {
     "value": sunrise,
     "color": get_random_color()
   },
-  "sunset": {
+  "st": {
     "value": sunset,
     "color": get_random_color()
   },
-  "week": {
+  "wk": {
     "value": week,
     "color": get_random_color()
   },
-  "date": {
+  "de": {
     "value":today.strftime('%Y年%m月%d日'),
     "color": get_random_color()
   },
-  "weather": {
+  "wr": {
     "value": weather,
     "color": get_random_color()
   },
-  "wind":{
+  "luh": {
+    "value": lubarmonth,
+    "color": get_random_color()
+  },
+  "luy": {
+    "value": lunarday,
+    "color": get_random_color()
+  },
+  "jie": {
+    "value": jieqi,
+    "color": get_random_color()
+  },
+  "l_fel": {
+    "value": lunar_festival,
+    "color": get_random_color()
+  },
+   "fel": {
+    "value": festival,
+    "color": get_random_color()
+  },
+  "wd":{
     "value": win,
     "color": get_random_color()
   },
-  "win_speed":{
+  "win_d":{
     "value": win_speed,
     "color": get_random_color()
   },
-  "pm25":{
-    "value": aqi['pm25_desc'],
-    "color": get_random_color()
-  },
-  "airQuality":{
+  "ay":{
     "value": aqi['air_level'],
     "color": get_random_color()
   },
-  "temperature": {
+  "te": {
     "value": tem,
     "color": get_random_color()
   },
-  "highest": {
+  "ht": {
     "value": tem1,
     "color": get_random_color()
   },
-  "lowest": {
+  "lt": {
     "value": tem2,
     "color": get_random_color()
   },
-  "love_days": {
+  "l_ds": {
     "value": get_memorial_days_count(),
     "color": get_random_color()
   },
-  "birthday_left": {
+  "b_lt": {
     "value": get_birthday_left(),
     "color": get_random_color()
   },
-  "air_tips": {
+  "a_ts": {
     "value": air_tips,
     "color": get_random_color()
   },
-  "tips": {
+  "ts": {
     "value": tips,
     "color": get_random_color()
   },
-  "alarm_content": {
+  "a_ct": {
     "value": alarm['alarm_title'],
     "color": get_random_color()
   },
-  "words": {
+  "ws": {
     "value": get_words(),
     "color": get_random_color()
   },
