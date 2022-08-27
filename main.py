@@ -45,6 +45,7 @@ def get_weather_wea():
   res21 = res2['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
+#农历接口
 def get_lunar_calendar():
   date = today.strftime("%Y-%m-%d") 
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
@@ -93,7 +94,6 @@ except WeChatClientException as e:
 wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
-lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
