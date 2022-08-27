@@ -36,8 +36,7 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
   res1 = requests.get(url).json()
-  alarm = res1.get['alarm']['alarm_title']
-  return res1['week'],res1['wea'], alarm,res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
+  return res1['week'],res1['wea'],res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
 
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
@@ -91,9 +90,10 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-week,weather,alarm,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
+week,weather,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
+alarm2 = alarm1.get['alarm_title']
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -225,7 +225,7 @@ data = {
     "color": get_random_color()
   },
   "a_ct": {
-    "value": alarm,
+    "value": alarm2,
     "color": get_random_color()
   },
   "ws": {
