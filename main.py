@@ -36,13 +36,13 @@ def get_weather():
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
   res1 = requests.get(url).json()
-  return res1['week'],res1['wea'],res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
+  return res1['week'],res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
 
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
   res2 = requests.get(url).json()
   res21 = res2['newslist'][0]
-  return res21['sunrise'],res21['sunset'],res21['tips']
+  return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather']
 
 def get_lunar_calendar():
   date = today.strftime("%Y-%m-%d") 
@@ -90,55 +90,61 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-week,weather,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
-sunrise,sunset,tips = get_weather_wea()
+week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
+sunrise,sunset,tips,weather, = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
-  "wo1":{
-    "value":""
-  },
-  "d1":{
-    "value":""
-  },
-  "b1":{
-    "value":""
-  },
-  "a1":{
-    "value":""
-  },
-  "c1":{
-    "value":""
-  },
-  "w1":{
-    "value":""
-  },
-  "t1":{
-    "value":""
-  },
-  "s1":{
-    "value":""
-  },
-  "s2":{
-    "value":""
-  },
-  "l1":{
-    "value":""
-  },
-  "h1":{
-    "value":""
-  },
   "1":{
-    "value":""
+    "value":" 😄"
   },
-  "wi1":{
-    "value":""
+  "2":{
+    "value":" 📅"
   },
-  "ws2":{
-    "value":""
+  "3":{
+    "value":" 🌥"
+  },
+  "4":{
+    "value":" 🏙"
+  },
+  "5":{
+    "value":" 🌡"
+  },
+  "6":{
+    "value":" 🌄"
+  },
+  "7":{
+    "value":" 🌆"
+  },
+  "8":{
+    "value":" 🌬"
+  },
+  "9":{
+    "value":" 🎛"
+  },
+  "a":{
+    "value":" 🥶"
+  },
+  "b":{
+    "value":" 🥵"
+  },
+  "c":{
+    "value":" 👬"
+  },
+  "d":{
+    "value":" 🍰"
+  },
+  "e":{
+    "value":" 🚴"
+  },
+  "f":{
+    "value":" 👕"
+  },
+   "g":{
+    "value":"📄"
   },
   "cy": {
     "value": city,
