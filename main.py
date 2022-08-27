@@ -93,7 +93,7 @@ wm = WeChatMessage(client)
 week,weather,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-alarm2 = alarm1.get['alarm_title']
+alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
   exit(422)
