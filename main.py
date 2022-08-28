@@ -155,88 +155,81 @@ data = {
   "b":{
     "value":"",
   },
-  "c": {
-    "value": sunrise,
+   "c": {
+    "value": tem1+"~"+tem2,
     "color": get_random_color()
   },
   "d":{
     "value":"",
   },
   "e": {
-    "value": sunset,
+    "value": sunrise,
     "color": get_random_color()
   },
   "f":{
     "value":"",
   },
-  "g":{
-    "value": win+win_speed,
+  "j": {
+    "value": sunset,
     "color": get_random_color()
   },
   "h":{
     "value":"",
   },
   "i":{
-    "value": pop+"%",
+    "value": win+win_speed,
     "color": get_random_color()
   },
   "j":{
     "value":"",
   },
   "k":{
-    "value": aqi['air_level'],
+    "value": pop+"%",
     "color": get_random_color()
   },
   "l":{
     "value":"",
   },
-  "m": {
-    "value": tem1,
+  "m":{
+    "value": aqi['air_level'],
     "color": get_random_color()
   },
   "n":{
     "value":"",
   },
   "o": {
-    "value": tem2,
+    "value": get_memorial_days_count(),
     "color": get_random_color()
   },
   "p":{
     "value":"",
   },
   "q": {
-    "value": get_memorial_days_count(),
+    "value": get_birthday_left(),
     "color": get_random_color()
   },
   "r":{
     "value":"",
   },
   "s": {
-    "value": get_birthday_left(),
+    "value": air_tips,
     "color": get_random_color()
   },
   "t":{
     "value":"",
   },
   "u": {
-    "value": air_tips,
-    "color": get_random_color()
-  },
-  "v":{
-    "value":"",
-  },
-  "w": {
     "value": tips,
     "color": get_random_color()
   },
-  "x": {
+  "v": {
     "value": alarm2,
     "color": get_random_color()
   },
-  "y":{
+  "w":{
     "value":"",
   },
-  "z": {
+  "x": {
     "value": get_words(),
     "color": get_random_color()
   },
