@@ -1,11 +1,12 @@
 from datetime import date, datetime, timedelta
 from collections import defaultdict
-import math
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
+import math
 import requests
 import os
 import random
+import emoji
 
 today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
@@ -97,57 +98,73 @@ week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 alarm2 = alarm1.get('alarm_title')
+lindang = emoji.emojize(':bell:')
+rili = emoji.emojize(':calendar:')
+tianqi = emoji.emojize(':cloud:')
+chengshi = emoji.emojize(':school:')
+wendu = emoji.emojize(':bar_chart:')
+richu = emoji.emojize(':city_sunrise:')
+riluo = emoji.emojize(':city_sunset:')
+fengxiang = emoji.emojize(':ear_of_rice:')
+kongqi = emoji.emojize(':cyclone:')
+diwen = emoji.emojize(':chart_with_downwards_trend:')
+gaowen = emoji.emojize(':chart_with_upwards_trend:')
+jinianri = emoji.emojize(':date:')
+shengri = emoji.emojize(':cake:')
+chuxing = emoji.emojize(':bicyclist:')
+chuanyi = emoji.emojize(':shirt:')
+jiyu = emoji.emojize(':clipboard:')
 if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
   "1":{
-    "value":"🧚‍♀"
+    "value":lindang,
   },
   "2":{
-    "value":"📅"
+    "value":rili,
   },
   "3":{
-    "value":"🌥"
+    "value":tianqi,
   },
   "4":{
-    "value":"🏙"
+    "value":chengshi,
   },
   "5":{
-    "value":"🌡"
+    "value":wendu,
   },
   "6":{
-    "value":"☀"
+    "value":richu,
   },
   "7":{
-    "value":"🌇"
+    "value":riluo,
   },
   "8":{
-    "value":"🌬︎"
+    "value":fengxiang,
   },
   "9":{
-    "value":"🎈"
+    "value":kongqi,
   },
   "a":{
-    "value":"❄"
+    "value":diwen,
   },
   "b":{
-    "value":"🔥"
+    "value":gaowen,
   },
   "c":{
-    "value":"💑"
+    "value":jinianri,
   },
   "d":{
-    "value":"🕯"
+    "value":shengri,
   },
   "e":{
-    "value":"🚴"
+    "value":chuxing,
   },
   "f":{
-    "value":"🥋"
+    "value":chuanyi,
   },
    "g":{
-    "value":"🎉"
+    "value":jiyu,
   },
   "cy": {
     "value": city,
