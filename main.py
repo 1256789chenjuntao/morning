@@ -1,5 +1,3 @@
-pip install emoji
-
 from datetime import date, datetime, timedelta
 from collections import defaultdict
 from emoji import emojize
