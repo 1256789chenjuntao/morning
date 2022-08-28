@@ -135,7 +135,7 @@ data = {
     "value":"",
   },
   "6": {
-    "value": weather+,
+    "value": weather,
     "color": get_random_color()
   },
   "7":{
