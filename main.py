@@ -211,7 +211,7 @@ data = {
     "color": get_random_color()
   },
   "w":{
-    "value":,
+    "value":"",
   },
   "x":{
     "value":"",
