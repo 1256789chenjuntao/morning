@@ -118,130 +118,125 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":"[Aaagh!]",
+    "value":"",
   },
   "2":{
-    "value":"[Aaagh!]",
+    "value":"",
   },
-  "3":{
-    "value":"[Aaagh!]",
-  },
-  "4":{
-    "value":"[Aaagh!]",
-  },
-  "5":{
-    "value":"[Aaagh!]",
-  },
-  "6":{
-    "value":"[Aaagh!]",
-  },
-  "7":{
-    "value":"[Aaagh!]",
-  },
-  "8":{
-    "value":"[Aaagh!]",
-  },
-  "9":{
-    "value":"[Aaagh!]",
-  },
-  "a":{
-    "value":"[Aaagh!]",
-  },
-  "b":{
-    "value":"[Aaagh!]",
-  },
-  "c":{
-    "value":"[Aaagh!]",
-  },
-  "d":{
-    "value":"[Aaagh!]",
-  },
-  "e":{
-    "value":"[Aaagh!]",
-  },
-  "f":{
-    "value":"[Aaagh!]",
-  },
-   "g":{
-    "value":"[Aaagh!]",
-  },
-  "cy": {
-    "value": city,
+  "3": {
+    "value":today.strftime('%Y年%m月%d日')+week,
     "color": get_random_color()
   },
-  "se": {
-    "value": sunrise,
-    "color": get_random_color()
-  },
-  "st": {
-    "value": sunset,
-    "color": get_random_color()
-  },
-  "wk": {
-    "value": week,
-    "color": get_random_color()
-  },
-  "de": {
-    "value":today.strftime('%Y年%m月%d日'),
-    "color": get_random_color()
-  },
-  "wr": {
-    "value": weather,
-    "color": get_random_color()
-  },
-  "nongli": {
+  "4": {
     "value": lubarmonth+lunarday+jieqi+lunar_festival+festival,
     "color": get_random_color()
   },
-  "wd":{
-    "value": win,
+  "5":{
+    "value":"",
+  },
+  "6": {
+    "value": weather+,
     "color": get_random_color()
   },
-  "win_d":{
-    "value": win_speed,
+  "7":{
+    "value":"",
+  },
+  "8": {
+    "value": city,
     "color": get_random_color()
   },
-  "pop":{
-    "value": pop,
-    "color": get_random_color()
+  "9":{
+    "value":"",
   },
-  "ay":{
-    "value": aqi['air_level'],
-    "color": get_random_color()
-  },
-  "te": {
+  "a": {
     "value": tem,
     "color": get_random_color()
   },
-  "ht": {
+  "b":{
+    "value":"",
+  },
+  "c": {
+    "value": sunrise,
+    "color": get_random_color()
+  },
+  "d":{
+    "value":"",
+  },
+  "e": {
+    "value": sunset,
+    "color": get_random_color()
+  },
+  "f":{
+    "value":"",
+  },
+  "g":{
+    "value": win+win_speed,
+    "color": get_random_color()
+  },
+  "h":{
+    "value":"",
+  },
+  "i":{
+    "value": pop+"%",
+    "color": get_random_color()
+  },
+  "j":{
+    "value":"",
+  },
+  "k":{
+    "value": aqi['air_level'],
+    "color": get_random_color()
+  },
+  "l":{
+    "value":"",
+  },
+  "m": {
     "value": tem1,
     "color": get_random_color()
   },
-  "lt": {
+  "n":{
+    "value":"",
+  },
+  "o": {
     "value": tem2,
     "color": get_random_color()
   },
-  "l_ds": {
+  "p":{
+    "value":"",
+  },
+  "q": {
     "value": get_memorial_days_count(),
     "color": get_random_color()
   },
-  "b_lt": {
+  "r":{
+    "value":"",
+  },
+  "s": {
     "value": get_birthday_left(),
     "color": get_random_color()
   },
-  "a_ts": {
+  "t":{
+    "value":"",
+  },
+  "u": {
     "value": air_tips,
     "color": get_random_color()
   },
-  "ts": {
+  "v":{
+    "value":"",
+  },
+  "w": {
     "value": tips,
     "color": get_random_color()
   },
-  "a_ct": {
+  "x": {
     "value": alarm2,
     "color": get_random_color()
   },
-  "ws": {
+  "y":{
+    "value":"",
+  },
+  "z": {
     "value": get_words(),
     "color": get_random_color()
   },
