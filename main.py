@@ -1,12 +1,12 @@
 from datetime import date, datetime, timedelta
 from collections import defaultdict
+from emoji import People,Nature,Objects,Places,Symbols
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
 import math
 import requests
 import os
 import random
-import emoji
 
 today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
