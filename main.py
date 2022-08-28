@@ -100,7 +100,7 @@ alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
   exit(422)
-data1 = {
+data = {
   "1":{
     "value":"🧚‍♀"
   },
@@ -135,7 +135,7 @@ data1 = {
     "value":"🔥"
   },
   "c":{
-    "value":"🧑‍🤝‍🧑"
+    "value":"💑"
   },
   "d":{
     "value":"🕯"
@@ -149,8 +149,6 @@ data1 = {
    "g":{
     "value":"🎉"
   },
-}
-data = {
   "cy": {
     "value": city,
     "color": get_random_color()
@@ -237,7 +235,7 @@ if __name__ == '__main__':
   count = 0
   try:
     for user_id in user_ids:
-      res = wm.send_template(user_id, template_id, data, data1)
+      res = wm.send_template(user_id, template_id, data)
       count+=1
   except WeChatClientException as e:
     print('微信端返回错误：%s。错误代码：%d' % (e.errmsg, e.errcode))
