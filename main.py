@@ -1,6 +1,5 @@
 from datetime import date, datetime, timedelta
 from collections import defaultdict
-from emoji import emojize
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
 import math
@@ -97,74 +96,73 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-alarm2 = alarm1.get('alarm_title')
-lindang = emoji.emojize(':bell:')
-rili = emoji.emojize(':calendar:')
-tianqi = emoji.emojize(':cloud:')
-chengshi = emoji.emojize(':school:')
-wendu = emoji.emojize(':bar_chart:')
-richu = emoji.emojize(':city_sunrise:')
-riluo = emoji.emojize(':city_sunset:')
-fengxiang = emoji.emojize(':ear_of_rice:')
-kongqi = emoji.emojize(':cyclone:')
-diwen = emoji.emojize(':chart_with_downwards_trend:')
-gaowen = emoji.emojize(':chart_with_upwards_trend:')
-jinianri = emoji.emojize(':date:')
-shengri = emoji.emojize(':cake:')
-chuxing = emoji.emojize(':bicyclist:')
-chuanyi = emoji.emojize(':shirt:')
-jiyu = emoji.emojize(':clipboard:')
+#alarm2 = alarm1.get('alarm_title')
+#lindang = emoji.emojize(':bell:')
+#rili = emoji.emojize(':calendar:')
+#tianqi = emoji.emojize(':cloud:')
+#chengshi = emoji.emojize(':school:')
+#wendu = emoji.emojize(':bar_chart:')
+#richu = emoji.emojize(':city_sunrise:')
+#riluo = emoji.emojize(':city_sunset:')
+#fengxiang = emoji.emojize(':ear_of_rice:')
+#kongqi = emoji.emojize(':cyclone:')
+#diwen = emoji.emojize(':chart_with_downwards_trend:')
+#gaowen = emoji.emojize(':chart_with_upwards_trend:')
+#jinianri = emoji.emojize(':date:')
+#shengri = emoji.emojize(':cake:')
+#chuxing = emoji.emojize(':bicyclist:')
+#chuanyi = emoji.emojize(':shirt:')
+#jiyu = emoji.emojize(':clipboard:')
 if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
   "1":{
-    "value":lindang,
+    "value":"[Aaagh!]",
   },
   "2":{
-    "value":rili,
+    "value":"[Aaagh!]",
   },
   "3":{
-    "value":tianqi,
+    "value":"[Aaagh!]",
   },
   "4":{
-    "value":chengshi,
-  },
+    "value":"[Aaagh!]",
   "5":{
-    "value":wendu,
+    "value":"[Aaagh!]",
   },
   "6":{
-    "value":richu,
+    "value":"[Aaagh!]",
   },
   "7":{
-    "value":riluo,
+    "value":"[Aaagh!]",
   },
   "8":{
-    "value":fengxiang,
+    "value":"[Aaagh!]",
   },
   "9":{
-    "value":kongqi,
+    "value":"[Aaagh!]",
   },
   "a":{
-    "value":diwen,
+    "value":"[Aaagh!]",
   },
   "b":{
-    "value":gaowen,
+    "value":"[Aaagh!]",
   },
   "c":{
-    "value":jinianri,
+    "value":"[Aaagh!]",
   },
   "d":{
-    "value":shengri,
+    "value":"[Aaagh!]",
   },
   "e":{
-    "value":chuxing,
+    "value":"[Aaagh!]",
   },
   "f":{
-    "value":chuanyi,
+    "value":"[Aaagh!]",
   },
    "g":{
-    "value":jiyu,
+    "value":"[Aaagh!]",
   },
   "cy": {
     "value": city,
