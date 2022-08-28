@@ -36,13 +36,13 @@ def get_weather():
     print('请设置城市')
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
-  res1 = requests.get(url).json()
+  res1 = requests.get(url,verify=False).json()
   return res1['week'],res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
 
 #天行数据接口
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
-  res2 = requests.get(url).json()
+  res2 = requests.get(url,verify=False).json()
   res21 = res2['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
@@ -50,7 +50,7 @@ def get_weather_wea():
 def get_lunar_calendar():
   date = today.strftime("%Y-%m-%d") 
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
-  lunar_calendar = requests.get(url).json()
+  lunar_calendar = requests.get(url,verify=False).json()
   res3 = lunar_calendar['newslist'][0]
   return res3['lubarmonth'],res3['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
 
@@ -97,22 +97,6 @@ week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 alarm2 = alarm1.get('alarm_title')
-#lindang = emoji.emojize(':bell:')
-#rili = emoji.emojize(':calendar:')
-#tianqi = emoji.emojize(':cloud:')
-#chengshi = emoji.emojize(':school:')
-#wendu = emoji.emojize(':bar_chart:')
-#richu = emoji.emojize(':city_sunrise:')
-#riluo = emoji.emojize(':city_sunset:')
-#fengxiang = emoji.emojize(':ear_of_rice:')
-#kongqi = emoji.emojize(':cyclone:')
-#diwen = emoji.emojize(':chart_with_downwards_trend:')
-#gaowen = emoji.emojize(':chart_with_upwards_trend:')
-#jinianri = emoji.emojize(':date:')
-#shengri = emoji.emojize(':cake:')
-#chuxing = emoji.emojize(':bicyclist:')
-#chuanyi = emoji.emojize(':shirt:')
-#jiyu = emoji.emojize(':clipboard:')
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -169,7 +153,7 @@ data = {
   "f":{
     "value":"",
   },
-  "j": {
+  "g": {
     "value": sunset,
     "color": get_random_color()
   },
@@ -227,9 +211,12 @@ data = {
     "color": get_random_color()
   },
   "w":{
+    "value":,
+  },
+  "x":{
     "value":"",
   },
-  "x": {
+  "y": {
     "value": get_words(),
     "color": get_random_color()
   },
