@@ -102,7 +102,7 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":"🥰"
+    "value":"🤣"
   },
   "2":{
     "value":"📅"
@@ -117,13 +117,13 @@ data = {
     "value":"🌡"
   },
   "6":{
-    "value":"🌅"
+    "value":"🌤"
   },
   "7":{
     "value":"🌇"
   },
   "8":{
-    "value":"🌬"
+    "value":"🌪"
   },
   "9":{
     "value":"🎈"
@@ -147,7 +147,7 @@ data = {
     "value":"🥋"
   },
    "g":{
-    "value":"🖹"
+    "value":"🎉"
   },
   "cy": {
     "value": city,
