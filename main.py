@@ -52,7 +52,8 @@ def get_lunar_calendar():
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
   lunar_calendar = requests.get(url,verify=False).json()
   res3 = lunar_calendar['newslist'][0]
-  return res3['lubarmonth'],res3['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
+  return res3['lubarmonth']+['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
+#res3['lunarday']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -95,7 +96,7 @@ except WeChatClientException as e:
 wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
-lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
+lubarmonth,jieqi,lunar_festival,festival = get_lunar_calendar()
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
@@ -112,7 +113,7 @@ data = {
     "color": get_random_color()
   },
   "4": {
-    "value": lubarmonth+lunarday+jieqi+lunar_festival+festival,
+    "value": lubarmonth+jieqi+lunar_festival+festival,
     "color": get_random_color()
   },
   "5":{
