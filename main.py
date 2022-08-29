@@ -73,7 +73,7 @@ def get_birthday_left():
   next1 = datetime.strptime(today.year + "-" + datetime.month + "-" + datetime.day, "%Y-%m-%d")
   nest2 = datetime.strptime(today.year + "-" + datetime.month + "-" + datetime.day, "%Y-%m-%d")
   nest3 = 2020
-  if next1 < nest3:
+  if next2 < nest3:
     next = next.replace(year=next.year + 1)
   return (next - nest2).days
 
