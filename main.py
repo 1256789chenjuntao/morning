@@ -68,7 +68,7 @@ def get_birthday_left():
     print('没有设置 BIRTHDAY')
     return 0
   lubarmonth,lunarday = get_lunar_calendar()
-  =lubarmonth+lunarday
+  datetime=lubarmonth+lunarday
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
