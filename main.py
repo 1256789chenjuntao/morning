@@ -54,13 +54,6 @@ def get_lunar_calendar():
   res3 = lunar_calendar['newslist'][0]
   return res3['lubarmonth'],res3['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
 
-def get_lunar_calendar1():
-  date = today.strftime("%Y-%m-%d")
-  url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
-  lunar_calendar = requests.get(url,verify=False).json()
-  res3 = lunar_calendar['newslist'][0]
-  return res3['lubarmonth'],res3['lunarday']
-
 # 纪念日正数
 def get_memorial_days_count():
   if start_date is None:
@@ -74,8 +67,6 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  lubarmonth,lunarday = get_lunar_calendar1()
-  datetime=lubarmonth+lunarday
   next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
