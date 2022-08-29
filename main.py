@@ -70,8 +70,8 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
-  next1 = datetime.strptime(str(date.today().year) + "-" + datetime.month + "-"+ datetime.day, "%Y-%m-%d")
-  nest2 = datetime.strptime(today.month + "-" + datetime.month + "-"+ datetime.day, "%Y-%m-%d")
+  next1 = datetime.strptime(today.year + "-" + datetime.month + "-"+ datetime.day, "%Y-%m-%d")
+  nest2 = datetime.strptime(today.year + "-" + datetime.month + "-"+ datetime.day, "%Y-%m-%d")
   if next1 < nest2:
     next = next.replace(year=next.year + 1)
   return (next - nest2).days
