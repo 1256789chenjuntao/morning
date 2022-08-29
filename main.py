@@ -48,7 +48,7 @@ def get_weather_wea():
 
 #农历接口
 def get_lunar_calendar():
-  date = today.strftime("%Y-%m-%d") 
+  date = today.strftime("%Y-%m-%d")
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
   lunar_calendar = requests.get(url,verify=False).json()
   res3 = lunar_calendar['newslist'][0]
@@ -67,6 +67,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
+  lubarmonth,lunarday = get_lunar_calendar()
   datetime=lubarmonth+lunarday
   next = .strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
   if next < datetime.now():
