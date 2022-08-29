@@ -20,7 +20,7 @@ user_ids = os.getenv('USER_ID', '').split("\n")
 template_id = os.getenv('TEMPLATE_ID')
 
 today = LunarDate.today() + timedelta(hours=8)
-datetime = LunarDate(birthday()) + timedelta(hours=8)
+datetime1 = LunarDate(birthday()) + timedelta(hours=8)
 
 if app_id is None or app_secret is None:
   print('请设置 APP_ID 和 APP_SECRET')
@@ -71,7 +71,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = datetime.strptime(str(date.today().year) + "-" + str(date.birthday().year), "%Y-%m-%d")
+  next = datetime.strptime(str(date.today().year) + "-" + str(date.birthday1().year), "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
