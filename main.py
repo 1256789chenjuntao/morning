@@ -11,7 +11,9 @@ import emoji
 
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
-birthday = os.getenv('BIRTHDAY')
+birthday_year = os.getenv('BIRTHDAY_YEAR')
+birthday_month = os.getenv('BIRTHDAY_MONTH')
+birthday_day = os.getenv('BIRTHDAY_day')
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
@@ -20,7 +22,7 @@ user_ids = os.getenv('USER_ID', '').split("\n")
 template_id = os.getenv('TEMPLATE_ID')
 
 today = LunarDate.today() + timedelta(hours=8)
-datetime1 = LunarDate(birthday()) + timedelta(hours=8)
+datetime1 = LunarDate(birthday_year,birthday_month,birthday_day) + timedelta(hours=8)
 
 if app_id is None or app_secret is None:
   print('请设置 APP_ID 和 APP_SECRET')
