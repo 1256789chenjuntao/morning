@@ -10,7 +10,7 @@ import random
 import emoji
 
 today = LunarDate.today() + timedelta(hours=8)
-datetime = LunarDate.birthday() + timedelta(hours=8)
+datetime = LunarDate(birthday()) + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
 birthday = os.getenv('BIRTHDAY')
