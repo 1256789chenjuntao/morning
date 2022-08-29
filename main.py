@@ -6,7 +6,7 @@ import math
 import requests
 import os
 import random
-import eomji
+import emoji
 
 today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
