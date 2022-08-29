@@ -1,6 +1,7 @@
 from datetime import date, datetime, timedelta
 from collections import defaultdict
 from wechatpy import WeChatClient, WeChatClientException
+from borax.calendars.lunardate import LunarDate
 from wechatpy.client.api import WeChatMessage
 import math
 import requests
@@ -8,7 +9,8 @@ import os
 import random
 import emoji
 
-today = datetime.now() + timedelta(hours=8)
+today = LunarDate.today() + timedelta(hours=8)
+datetime = LunarDate.birthday() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
 birthday = os.getenv('BIRTHDAY')
@@ -68,7 +70,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
+  next = datetime.strptime(str(date.today().year) + "-" + str(date.birthday().year), "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
@@ -97,6 +99,7 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
+
 alarm2 = alarm1.get('alarm_title')
 if weather is None:
   print('获取天气失败')
