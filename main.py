@@ -74,7 +74,7 @@ def get_birthday_left():
     print('没有设置 BIRTHDAY')
     return 0
   next = datetime.strptime(str(date.today().year) + "-" + str(date.birthday1().year), "%Y-%m-%d")
-  if next < datetime.now():
+  if next < datetime1.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
