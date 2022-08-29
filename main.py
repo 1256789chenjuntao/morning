@@ -6,8 +6,7 @@ import math
 import requests
 import os
 import random
-from zhdate import ZhDate as lunar_date
-from datetime import datetime
+from eomji
 
 today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
