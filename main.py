@@ -16,15 +16,19 @@ today1 = LunarDate.today()
 city = os.getenv('CITY')
 start_date = os.getenv('START_DATE')
 birthday = os.getenv('BIRTHDAY')
-birthday_year = os.getenv('BIRTHDAY_YEAR')
-birthday_month = os.getenv('BIRTHDAY_MONTH')
-birthday_day = os.getenv('BIRTHDAY_DAY')
+n = int(birthday[0:4:1])
+y = int(birthday[5:7])
+r = int(birthday[8:])
+birthday1 = LunarDate(n, y, r)
+#birthday_year = os.getenv('BIRTHDAY_YEAR')
+#birthday_month = os.getenv('BIRTHDAY_MONTH')
+#birthday_day = os.getenv('BIRTHDAY_DAY')
 
-birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
-lubaryear1 = today1.year
-lubarmonth1 = birthday1.month
-lubarday1 = birthday1.day
-birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
+#birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
+#lubaryear1 = today1.year
+#lubarmonth1 = birthday1.month
+#lubarday1 = birthday1.day
+#birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
 #birthday3 = birthday2.to_solar_date()#把农历转为公历
 
 app_id = os.getenv('APP_ID')
@@ -82,7 +86,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = birthday3.to_datetime()
+  next = birthday1.to_datetime()
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - datetime.now()).days
