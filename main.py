@@ -84,8 +84,8 @@ def get_birthday_left():
     print('没有设置 BIRTHDAY')
     return 0
   next = datetime.strptime(str(birthday3), "%Y-%m-%d")
-  next1 = next.replace(year=next.year + 1)
-  return (next1).days
+  next = next.replace(year=next.year + 1)
+  return (next).days
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
