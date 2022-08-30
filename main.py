@@ -1,4 +1,3 @@
-#coding=UTF-8
 from datetime import date, datetime, timedelta
 from collections import defaultdict
 from wechatpy import WeChatClient, WeChatClientException
@@ -9,6 +8,10 @@ import requests
 import os
 import random
 import emoji
+import sys
+
+rsload(sys)
+sys.setdefaultencoding('UTF-8')
 
 nowtime = datetime.utcnow() + timedelta(hours=8)  # 东八区时间
 today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d") #今天的日期
