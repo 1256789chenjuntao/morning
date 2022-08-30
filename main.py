@@ -22,7 +22,7 @@ birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日
 lubaryear1 = today1.year
 lubarmonth1 = birthday1.month
 lubarday1 = birthday1.day
-birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1)#构建农历日期
+birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
 birthday3 = birthday2.to_solar_date()#把农历转为公历
 birthday4 = birthday3.year
 
