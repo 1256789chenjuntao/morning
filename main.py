@@ -27,7 +27,9 @@ birthday2 = birthday1.to_solar_date()
 #birthday_day = os.getenv('BIRTHDAY_DAY')
 
 #birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
-#lubaryear1 = today1.year
+lubaryear1 = today1.year
+birthday1 = LunarDate(lubaryear1, y, r)
+birthday2 = birthday1.to_solar_date()
 #lubarmonth1 = birthday1.month
 #lubarday1 = birthday1.day
 #birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
@@ -88,7 +90,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = birthday2
+  next = birthday2.strftime("%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
