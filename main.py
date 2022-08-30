@@ -9,8 +9,6 @@ import os
 import random
 import emoji
 import sys
-#rsload(sys)
-#sys.setdefaultencoding('UTF-8')
 
 nowtime = datetime.utcnow() + timedelta(hours=8)  # 东八区时间
 today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d") #今天的日期
@@ -119,7 +117,7 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":emoji.emojize('Are you feeling :angry:'),
+    "value":emoji.emojize(':angry:'),
   },
   "2":{
     "value":emoji.emojize(":sunrise:"),
