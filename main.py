@@ -20,7 +20,8 @@ birthday = os.getenv('BIRTHDAY')
 n = int(birthday[0:4:1])
 y = int(birthday[5:7])
 r = int(birthday[8:])
-birthday1 = lunar_date(n, y, r)
+birthday1 = LunarDate(n, y, r)
+birthday2 = birthday1.to_solar_date()
 #birthday_year = os.getenv('BIRTHDAY_YEAR')
 #birthday_month = os.getenv('BIRTHDAY_MONTH')
 #birthday_day = os.getenv('BIRTHDAY_DAY')
@@ -87,7 +88,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = birthday1.to_datetime()
+  next = birthday2
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
