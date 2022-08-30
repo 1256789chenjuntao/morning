@@ -126,10 +126,10 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":,
+    "value":"",
   },
   "2":{
-    "value":,
+    "value":"",
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
