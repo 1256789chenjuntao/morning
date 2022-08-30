@@ -65,6 +65,8 @@ def get_lunar_calendar():
   date = today.strftime("%Y-%m-%d")
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
   lunar_calendar = requests.get(url,verify=False).json()
+  if lunar_calendar.status_code != 200:
+    return get_lunar_calendar()
   res3 = lunar_calendar['newslist'][0]
   return res3['lubarmonth'],res3['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
 
