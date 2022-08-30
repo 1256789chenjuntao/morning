@@ -20,13 +20,12 @@ birthday_year = os.getenv('BIRTHDAY_YEAR')
 birthday_month = os.getenv('BIRTHDAY_MONTH')
 birthday_day = os.getenv('BIRTHDAY_DAY')
 
-#birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
+birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
 lubaryear1 = today1.year
-#lubarmonth1 = birthday1.month
-#lubarday1 = birthday1.day
-#birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
+lubarmonth1 = birthday1.month
+lubarday1 = birthday1.day
+birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
 #birthday3 = birthday2.to_solar_date()#把农历转为公历
-birthday4 = LunarDate(lubaryear1,birthday_month,birthday_day,False)
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
