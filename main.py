@@ -18,7 +18,7 @@ start_date = os.getenv('START_DATE')
 birthday = os.getenv('BIRTHDAY')
 birthday_year = os.getenv('BIRTHDAY_YEAR')
 birthday_month = os.getenv('BIRTHDAY_MONTH')
-birthday_day = os.getenv('BIRTHDAY_day')
+birthday_day = os.getenv('BIRTHDAY_DAY')
 
 #birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
 lubaryear1 = today1.year
