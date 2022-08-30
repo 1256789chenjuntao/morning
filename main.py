@@ -9,7 +9,8 @@ import os
 import random
 import emoji
 
-today = datetime.now() + timedelta(hours=8)
+nowtime = datetime.utcnow() + timedelta(hours=8)  # 东八区时间
+today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d") #今天的日期
 today1 = LunarDate.today() + timedelta(hours=8)
 city = os.getenv('CITY')
 start_date = os.getenv('START_DATE')
@@ -78,8 +79,8 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
-  next = datetime.strptime(birthday3, "%Y-%m-%d")
-  if next < datetime.now():
+  next = datetime.strptime(str(birthday3.date()), "%Y-%m-%d")
+  if next < nowtime:
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
