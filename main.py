@@ -59,7 +59,7 @@ def get_weather_wea():
   res21 = res2['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
-疫情接口，还没有调试成功，可删除
+#疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://c.m.163.com/ug/api/wuhan/app/data/list-total"
   res3 = requests.get(url,verify=False).json()
