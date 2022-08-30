@@ -1,4 +1,4 @@
-coding=UTF-8
+#coding=UTF-8
 from datetime import date, datetime, timedelta
 from collections import defaultdict
 from wechatpy import WeChatClient, WeChatClientException
