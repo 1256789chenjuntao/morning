@@ -116,7 +116,7 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":"",
+    "value":emoji.emojize('Python is :thumbs_up:'),
   },
   "2":{
     "value":"",
