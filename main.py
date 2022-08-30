@@ -23,13 +23,13 @@ birthday = os.getenv('BIRTHDAY')
 
 #birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
 lubaryear1 = today1.year
-birthday1 = LunarDate(lubaryear1, y, r)
 #birthday2 = birthday1.to_solar_date()
 #lubarmonth1 = birthday1.month
 #lubarday1 = birthday1.day
 n = int(birthday[0:4:1])
 y = int(birthday[5:7])
 r = int(birthday[8:])
+birthday1 = LunarDate(lubaryear1, y, r)
 #birthday1 = LunarDate(, y, r)
 birthday2 = birthday1.to_solar_date()
 birthday3 = birthday2.strftime("%Y-%m-%d")
