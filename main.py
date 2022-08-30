@@ -17,6 +17,7 @@ birthday = os.getenv('BIRTHDAY')
 birthday_year = os.getenv('BIRTHDAY_YEAR')
 birthday_month = os.getenv('BIRTHDAY_MONTH')
 birthday_day = os.getenv('BIRTHDAY_day')
+
 birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
 lubaryear1 = today1.year
 lubarmonth1 = birthday1.month
@@ -77,9 +78,11 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
-  if birthday3 < today:
-    birthday3 = birthday3.replace(year=birthday3.year + 1)
-  return (birthday3 - today).days
+  next = datetime.strptime(str(birthday3), "%Y-%m-%d")
+  next1 = datetime.strptime(str(today), "%Y-%m-%d")
+  if next < next1:
+    next = next.replace(year=next.year + 1)
+  return (next - next1).days
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
