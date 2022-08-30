@@ -16,12 +16,12 @@ lubarday1 = today1.day
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
 birthday = os.getenv('BIRTHDAY')
-birthday1 = LunarDate(birthday)
+birthday_year = os.getenv('BIRTHDAY_YEAR')
+birthday_month = os.getenv('BIRTHDAY_MONTH')
+birthday_day = os.getenv('BIRTHDAY_day')
+birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)
 lubarmonth2 = birthday1.month
-lubarmonth2 = birthday1.month
-#birthday_year = os.getenv('BIRTHDAY_YEAR')
-#birthday_month = os.getenv('BIRTHDAY_MONTH')
-#birthday_day = os.getenv('BIRTHDAY_day')
+lubarday2 = birthday1.month
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
