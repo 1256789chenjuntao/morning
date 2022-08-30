@@ -9,8 +9,8 @@ import os
 import random
 import emoji
 import sys
-rsload(sys)
-sys.setdefaultencoding('UTF-8')
+#rsload(sys)
+#sys.setdefaultencoding('UTF-8')
 
 nowtime = datetime.utcnow() + timedelta(hours=8)  # 东八区时间
 today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d") #今天的日期
