@@ -90,7 +90,7 @@ def get_birthday_left():
   next = birthday1.to_datetime()
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
-  return (next - datetime.now()).days
+  return (next - today).days
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
