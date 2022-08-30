@@ -59,12 +59,12 @@ def get_weather_wea():
   res21 = res2['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
-#疫情接口
+疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://c.m.163.com/ug/api/wuhan/app/data/list-total"
   res3 = requests.get(url,verify=False).json()
-  res31 = res3['data']['areaTree'][0]['children'][0]['children']
-  return res31['today']['confirm'],res31['total']['confirm']
+  res31 = res3['data']['areaTree']['children']['children']
+  return res31['today'],res31['total']
 
 #农历接口
 def get_lunar_calendar():
@@ -118,7 +118,7 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-today_confirm,total_confirm = get_Covid_19()
+today,total = get_Covid_19()
 alarm2 = alarm1.get('alarm_title')
 
 if weather is None:
@@ -235,7 +235,7 @@ data = {
     "color": get_random_color()
   },
   "w":{
-    "value":"澄迈新增："+today_confirm+","+"累计病例："+total_confirm,
+    "value":"澄迈新增："+today['confirm']+","+"累计病例："+total['confirm'],
   },
   "x":{
     "value":"",
