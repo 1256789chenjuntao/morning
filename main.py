@@ -22,7 +22,7 @@ lubaryear1 = today1.year
 lubarmonth1 = birthday1.month
 lubarday1 = birthday1.day
 birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1)#构建农历日期
-nexs = birthday2.to_solar_date()#把农历转为公历
+birthday3 = birthday2.to_solar_date()#把农历转为公历
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
@@ -76,6 +76,7 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
+  next = datetime.strptime(str(date.birthday3), "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
