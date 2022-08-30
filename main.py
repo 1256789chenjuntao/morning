@@ -72,8 +72,6 @@ def get_memorial_days_count():
 def get_birthday_left():
   next1 = datetime.strptime(str(today.year) + "-" + str(datetime.month) + "-" + str(datetime.day), "%Y-%m-%d")
   nest2 = datetime.strptime(str(today.year) + "-" + str(today.month) + "-" + str(today.day), "%Y-%m-%d")
-  if next1 < nest2:
-    next1 = next1.replace(year=next1.year + 1)
   return (next1 - nest2).days
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
