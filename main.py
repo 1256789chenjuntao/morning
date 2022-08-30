@@ -80,8 +80,10 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
+  if birthday is None:
+    print('没有设置 BIRTHDAY')
+    return 0
   next = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
-  #next = datetime.strptime(str(birthday3.date()), "%Y-%m-%d")
   if next < nowtime:
     next = next.replace(year=next.year + 1)
   return (next - today).days
