@@ -1,7 +1,6 @@
 from datetime import date, datetime, timedelta
 from collections import defaultdict
 from wechatpy import WeChatClient, WeChatClientException
-from borax.calendars.lunardate import LunarDate
 from wechatpy.client.api import WeChatMessage
 import math
 import requests
@@ -9,6 +8,7 @@ import os
 import random
 import emoji
 
+today = datetime.now() + timedelta(hours=8)
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
 birthday_year = os.getenv('BIRTHDAY_YEAR')
@@ -20,9 +20,6 @@ app_secret = os.getenv('APP_SECRET')
 
 user_ids = os.getenv('USER_ID', '').split("\n")
 template_id = os.getenv('TEMPLATE_ID')
-
-today = LunarDate.today() + timedelta(hours=8)
-datetime = LunarDate(birthday_year,birthday_month,birthday_day,0) + timedelta(hours=8)
 
 if app_id is None or app_secret is None:
   print('请设置 APP_ID 和 APP_SECRET')
@@ -68,12 +65,6 @@ def get_memorial_days_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
   return delta.days
 
-# 生日倒计时
-def get_birthday_left():
-  next1 = datetime.strptime(str(today.year) + "-" + str(datetime.month) + "-" + str(datetime.day), "%Y-%m-%d")
-  nest2 = datetime.strptime(str(today.year) + "-" + str(today.month) + "-" + str(today.day), "%Y-%m-%d")
-  return (next1 - nest2).days
-
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
@@ -98,8 +89,15 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-
 alarm2 = alarm1.get('alarm_title')
+
+# 生日倒计时
+def get_birthday_left():
+  next = datetime.strptime(str(today.year) + "-" + str(lubarmonth) + "-" + str(lunarday), "%Y-%m-%d")
+  if next < datetime.now():
+    next = next.replace(year=next.year + 1)
+  return (next - today).days
+
 if weather is None:
   print('获取天气失败')
   exit(422)
