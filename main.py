@@ -63,7 +63,7 @@ def get_weather_wea():
 def get_Covid_19():
   url = "https://c.m.163.com/ug/api/wuhan/app/data/list-total"
   res3 = requests.get(url,verify=False).json()
-  res31 = res3['data']['areaTree']['children']['children']
+  res31 = res3['data']['areaTree[2]']['children[6]']['children[8]']
   return res31['today']['confirm'],res31['total']['confirm']
 
 #农历接口
