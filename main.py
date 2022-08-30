@@ -82,7 +82,8 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = datetime.strptime(str(birthday3) , "%Y-%m-%d")
+  next = datetime.formtimestamp(birthday3)
+  #next = datetime.strptime(str(birthday3) , "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
