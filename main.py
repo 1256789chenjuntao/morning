@@ -94,7 +94,7 @@ alarm2 = alarm1.get('alarm_title')
 
 # 生日倒计时
 def get_birthday_left():
-  next = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
+  next = datetime.strptime(str(date.today().year) + "-" + "4" + "-" + "6", "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
