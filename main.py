@@ -9,7 +9,6 @@ import os
 import random
 import emoji
 import sys
-
 rsload(sys)
 sys.setdefaultencoding('UTF-8')
 
