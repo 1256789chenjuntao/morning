@@ -3,7 +3,6 @@ from collections import defaultdict
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
 from borax.calendars.lunardate import LunarDate
-from zhdate import ZhDate as lunar_date
 import math
 import requests
 import os
@@ -17,30 +16,21 @@ today1 = LunarDate.today()
 city = os.getenv('CITY')
 start_date = os.getenv('START_DATE')
 birthday = os.getenv('BIRTHDAY')
-#birthday_year = os.getenv('BIRTHDAY_YEAR')
-#birthday_month = os.getenv('BIRTHDAY_MONTH')
-#birthday_day = os.getenv('BIRTHDAY_DAY')
-
-#birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)#将公立生日转成农历
-lubaryear1 = today1.year
-#birthday2 = birthday1.to_solar_date()
-#lubarmonth1 = birthday1.month
-#lubarday1 = birthday1.day
-n = int(birthday[0:4:1])
-y = int(birthday[5:7])
-r = int(birthday[8:])
-birthday1 = LunarDate(lubaryear1, y, r)
-#birthday1 = LunarDate(, y, r)
-birthday2 = birthday1.to_solar_date()
-birthday3 = birthday2.strftime("%Y-%m-%d")
-#birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
-#birthday3 = birthday2.to_solar_date()#把农历转为公历
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
 
 user_ids = os.getenv('USER_ID', '').split("\n")
 template_id = os.getenv('TEMPLATE_ID')
+
+#为读取农历生日准备
+lubaryear1 = today1.year
+n = int(birthday[0:4:1])#读取无用，为理解下面两行留着，可删去
+y = int(birthday[5:7])#切片
+r = int(birthday[8:])
+birthday1 = LunarDate(lubaryear1, y, r)#构建农历日期
+birthday2 = birthday1.to_solar_date()#转化成公历日期
+birthday3 = birthday2.strftime("%Y-%m-%d")
 
 if app_id is None or app_secret is None:
   print('请设置 APP_ID 和 APP_SECRET')
@@ -91,7 +81,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = datetime.strptime(birthday3, "%Y-%m-%d")
+  next = datetime.strptime(birthday2.strftime("%Y-%m-%d"), "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
