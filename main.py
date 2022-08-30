@@ -21,7 +21,7 @@ birthday_month = os.getenv('BIRTHDAY_MONTH')
 birthday_day = os.getenv('BIRTHDAY_day')
 birthday1 = LunarDate(birthday_year,birthday_month,birthday_day)
 lubarmonth2 = birthday1.month
-lubarday2 = birthday1.month
+lubarday2 = birthday1.day
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
@@ -75,8 +75,8 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
-  next = datetime.strptime(str(date.today().year) + "-" + str(birthday1.month) + "-" + str(birthday1.day), "%Y-%m-%d")
-  next2 = datetime.strptime(str(date.today().year) + "-" + str(today1.month) + "-" + str(today.day), "%Y-%m-%d")
+  next = datetime.strptime(str(date.today().year) + "-" + str(lubarmonth2) + "-" + str(lubarday2), "%Y-%m-%d")
+  next2 = datetime.strptime(str(date.today().year) + "-" + str(lubarmonth1) + "-" + str(lubarday1), "%Y-%m-%d")
   if next < next2:
     next = next.replace(year=next.year + 1)
   return (next - today).days
