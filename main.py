@@ -117,10 +117,10 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":emoji.emojize(':angry:'),
+    "value":emoji.emojize(":angry:"),
   },
   "2":{
-    "value":emoji.emojize(":sunrise:"),
+    "value":,
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
