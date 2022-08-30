@@ -116,10 +116,10 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":emoji.emojize('Python is :thumbs_up:'),
+    "value":emoji.emojize('Are you feeling :angry:', use_aliases=True),
   },
   "2":{
-    "value":"",
+    "value":emoji.emojize(":sunrise:", use_aliases=True),
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
