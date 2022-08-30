@@ -29,8 +29,7 @@ n = int(birthday[0:4:1])#读取无用，为理解下面两行留着，可删去
 y = int(birthday[5:7])#切片
 r = int(birthday[8:])
 birthday1 = LunarDate(lubaryear1, y, r)#构建农历日期
-birthday2 = birthday1.to_solar_date()#转化成公历日期
-birthday3 = birthday2.strftime("%Y-%m-%d")
+birthday2 = birthday1.to_solar_date()#转化成公历日期，输出为字符串
 
 if app_id is None or app_secret is None:
   print('请设置 APP_ID 和 APP_SECRET')
@@ -81,7 +80,7 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = datetime.strptime(birthday2.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next = datetime.strptime(birthday2.strftime("%Y-%m-%d"), "%Y-%m-%d")#先转换成datetime.date类型,再转换成datetime.datetime
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
