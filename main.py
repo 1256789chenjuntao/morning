@@ -3,6 +3,7 @@ from collections import defaultdict
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
 from borax.calendars.lunardate import LunarDate
+from zhdate import ZhDate as lunar_date
 import math
 import requests
 import os
