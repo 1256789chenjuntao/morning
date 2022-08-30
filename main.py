@@ -26,7 +26,7 @@ lubaryear1 = today1.year
 #lubarday1 = birthday1.day
 #birthday2 = LunarDate(lubaryear1,lubarmonth1,lubarday1,False)#构建农历日期
 #birthday3 = birthday2.to_solar_date()#把农历转为公历
-birthday4 = LunarDate(lubaryear1,birthday_month,birthday_day)
+birthday4 = LunarDate(lubaryear1,birthday_month,birthday_day,false)
 
 app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
