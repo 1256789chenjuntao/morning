@@ -78,11 +78,11 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
-  next = datetime.strptime(str(date.birthday3.year), "%Y-%m-%d")
-  next1 = datetime.strptime(str(date.today.year)+"-"+str(date.today.mongth)+"-"+str(date.today.day), "%Y-%m-%d")
-  if next < next1:
+  next = datetime.strptime(str(birthday3), "%Y-%m-%d")
+  next2 = datetime.strptime(str(date.today().year) + "-" + str(today1.month) + "-" + str(today.day), "%Y-%m-%d")
+  if next < next2:
     next = next.replace(year=next.year + 1)
-  return (next - next1).days
+  return (next - next2).days
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
