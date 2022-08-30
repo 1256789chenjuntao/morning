@@ -55,7 +55,7 @@ def get_lunar_calendar():
   url = "http://api.tianapi.com/lunar/index?key=d5edced4967c76fd11899dbe1b753d91&date=" + date
   lunar_calendar = requests.get(url,verify=False).json()
   res3 = lunar_calendar['newslist'][0]
-  return res3['lubarmonth'],res3['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
+  return res3['lunardate'],res3['lubarmonth'],res3['lunarday'],res3['jieqi'],res3['lunar_festival'],res3['festival']
 
 # 纪念日正数
 def get_memorial_days_count():
@@ -88,12 +88,12 @@ except WeChatClientException as e:
 wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
-lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
+lunardate,lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 alarm2 = alarm1.get('alarm_title')
 
 # 生日倒计时
 def get_birthday_left():
-  next = datetime.strptime(str(today.year) + "-" + str(lubarmonth) + "-" + str(lunarday), "%Y-%m-%d")
+  next = datetime.strptime(str(today.year) + "-" + str(lunardate.month) + "-" + str(lunardate.day), "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
