@@ -120,7 +120,7 @@ data = {
     "value":emoji.emojize(":angry:"),
   },
   "2":{
-    "value"emoji.emojize("U+1F604"),
+    "value":emoji.emojize("U+1F604"),
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
