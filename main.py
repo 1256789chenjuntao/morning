@@ -62,9 +62,10 @@ def get_weather_wea():
 #疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://c.m.163.com/ug/api/wuhan/app/data/list-total"
-  res3 = requests.get(url,verify=False).json.loads(res.text)
-  res31 = res3['data']['areaTree']['children']['children']
-  return res31['today'],res31['total']
+  res3 = requests.get(url,verify=False)
+  res31 = json.loads(res3.text)
+  res32 = res31['data']['areaTree']['children']['children']
+  return res32['today'],res32['total']
 
 #农历接口
 def get_lunar_calendar():
