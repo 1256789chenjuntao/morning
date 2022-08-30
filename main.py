@@ -10,12 +10,15 @@ import random
 import emoji
 
 today = datetime.now() + timedelta(hours=8)
-today1 = LunarDate.today() + timedelta(hours=8)
+today1 = LunarDate.today()
 lubarmonth1 = today1.month
 lubarday1 = today1.day
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
 birthday = os.getenv('BIRTHDAY')
+birthday1 = LunarDate.birthday()
+lubarmonth2 = birthday1.month
+lubarmonth2 = birthday1.month
 #birthday_year = os.getenv('BIRTHDAY_YEAR')
 #birthday_month = os.getenv('BIRTHDAY_MONTH')
 #birthday_day = os.getenv('BIRTHDAY_day')
@@ -72,8 +75,9 @@ def get_memorial_days_count():
 
 # 生日倒计时
 def get_birthday_left():
-  next = datetime.strptime(str(date.today().year) + "-" + str(today1.month) + "-" + str(today.day), "%Y-%m-%d")
-  if next < datetime.now():
+  next = datetime.strptime(str(date.today().year) + "-" + str(birthday1.month) + "-" + str(birthday1.day), "%Y-%m-%d")
+  next2 = datetime.strptime(str(date.today().year) + "-" + str(today1.month) + "-" + str(today.day), "%Y-%m-%d")
+  if next < next2:
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
