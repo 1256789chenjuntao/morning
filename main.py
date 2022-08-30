@@ -8,7 +8,6 @@ import requests
 import os
 import random
 import emoji
-import sys
 
 nowtime = datetime.utcnow() + timedelta(hours=8)  # 东八区时间
 today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d") #今天的日期
@@ -59,6 +58,13 @@ def get_weather_wea():
   res2 = requests.get(url,verify=False).json()
   res21 = res2['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
+
+#疫情接口
+def get_Covid_19():
+  url = "https://c.m.163.com/ug/api/wuhan/app/data/list-total"
+  res3 = requests.get(url,verify=False).json()
+  res31 = res3['date']['areaTree']['children']['children'][0]
+  return res31['today']['confirm'],res31['total']['confirm']
 
 #农历接口
 def get_lunar_calendar():
@@ -112,6 +118,7 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
+today_confirm,total_confirm = get_Covid_19()
 alarm2 = alarm1.get('alarm_title')
 
 if weather is None:
@@ -119,10 +126,10 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":emoji.emojize(":angry:"),
+    "value":,
   },
   "2":{
-    "value":emoji.emojize("U+1F604"),
+    "value":,
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
@@ -228,7 +235,7 @@ data = {
     "color": get_random_color()
   },
   "w":{
-    "value":"",
+    "value":"澄迈新增："+today_confirm+","+"累计病例："+total_confirm,
   },
   "x":{
     "value":"",
