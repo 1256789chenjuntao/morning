@@ -118,7 +118,7 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-today,total = get_Covid_19()
+today1,total1 = get_Covid_19()
 alarm2 = alarm1.get('alarm_title')
 
 if weather is None:
@@ -235,7 +235,7 @@ data = {
     "color": get_random_color()
   },
   "w":{
-    "value":"澄迈新增："+today['confirm']+","+"累计病例："+total['confirm'],
+    "value":"澄迈新增："+today1['asymptomNum']+","+"累计病例："+total1['econNum'],
   },
   "x":{
     "value":"",
