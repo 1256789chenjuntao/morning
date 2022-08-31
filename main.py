@@ -245,6 +245,7 @@ data = {
   },
   "x":{
     "value":"澄迈新增"+asymptomNum+"例，"+"累计"+econNum+"例",
+    "color": get_random_color()
   },
   "y": {
     "value": "",
