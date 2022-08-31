@@ -56,15 +56,19 @@ def get_weather():
 #天行数据接口
 def get_weather_wea():
   url = "http://api.tianapi.com/tianqi/index?key=d5edced4967c76fd11899dbe1b753d91&city=" + city
-  res2 = requests.get(url,verify=False).json()
-  res21 = res2['newslist'][0]
+  res2 = requests.get(url,verify=False)
+  if res2.status_code != 200:
+    return res2()
+  res21 = res2.json()['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
 #疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://interface.sina.cn/news/wap/fymap2020_data.d.json"
-  res3 = requests.get(url,verify=False).json()
-  res32 = res3['data']['list'][16]['city'][10]
+  res3 = requests.get(url,verify=False)
+  if res3.status_code != 200:
+    return res3()
+  res32 = res3.json()['data']['list'][16]['city'][10]
   return res32['econNum'],res32['asymptomNum']
 
 #农历接口
@@ -108,9 +112,6 @@ def format_temperature(temperature):
 # 随机颜色
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
-
-def get_random_color_red():
-  return 0xc0
 
 try:
   client = WeChatClient(app_id, app_secret)
