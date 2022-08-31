@@ -63,8 +63,8 @@ def get_weather_wea():
 def get_Covid_19():
   url = "https://interface.sina.cn/news/wap/fymap2020_data.d.json"
   res3 = requests.get(url,verify=False).json()
-  res32 = res3['data']['list'][15]['city'][9]
-  return res32['conNum'],res32['deathNum']
+  res32 = res3['data']['list'][16]['city'][10]
+  return res32['econNum'],res32['asymptomNum']
 
 #农历接口
 def get_lunar_calendar():
@@ -118,7 +118,7 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-today1,total1 = get_Covid_19()
+econNum,asymptomNum = get_Covid_19()
 alarm2 = alarm1.get('alarm_title')
 
 if weather is None:
@@ -235,7 +235,7 @@ data = {
     "color": get_random_color()
   },
   "w":{
-    "value":"澄迈新增："+today1+","+"累计病例："+total1,
+    "value":"澄迈新增："+asymptomNum+","+"累计病例："+econNum,
   },
   "x":{
     "value":"",
