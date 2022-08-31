@@ -169,7 +169,7 @@ data = {
     "value":"",
   },
    "c": {
-    "value": tem1+"~"+tem2,
+    "value": tem1+"℃"+"~"+tem2+"℃",
     "color": get_random_color()
   },
   "d":{
