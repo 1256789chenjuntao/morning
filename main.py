@@ -252,7 +252,7 @@ data = {
   },
   "z":{
     "value": get_words(),
-    "color": get_randmo_color()
+    "color": get_random_color()
   },
 }
 
