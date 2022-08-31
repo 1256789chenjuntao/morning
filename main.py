@@ -63,7 +63,7 @@ def get_weather_wea():
 def get_Covid_19():
   url = "https://interface.sina.cn/news/wap/fymap2020_data.d.json"
   res3 = requests.get(url,verify=False).json()
-  res32 = res3['data']["list",15]["dity",9]
+  res32 = res3['data'][15][9]
   return res32['conNum'],res32['deathNum']
 
 #农历接口
