@@ -110,7 +110,7 @@ def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
 def get_random_color_red():
-  return "0x0c" % randint(0, 0xFFFFFF)
+  return "#%0x0c" % randint(0, 0xFFFFFF)
 
 try:
   client = WeChatClient(app_id, app_secret)
