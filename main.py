@@ -132,7 +132,7 @@ data = {
     "value":"",
   },
   "3": {
-    "value":today+week,
+    "value":today.strftime('%Y年%m月%d日')+week,
     "color": get_random_color()
   },
   "4": {
