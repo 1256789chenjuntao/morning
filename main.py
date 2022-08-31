@@ -241,7 +241,7 @@ data = {
   },
   "w":{
     "value":"",
-    "color":get_random_color_red()
+    "color": get_random_color()
   },
   "x":{
     "value":"澄迈新增"+asymptomNum+"例，"+"累计"+econNum+"例",
@@ -251,8 +251,8 @@ data = {
     "color": get_random_color()
   },
   "z":{
-    "value":get_words(),
-    "color":get_randmo_color()
+    "value": get_words(),
+    "color": get_randmo_color()
   },
 }
 
