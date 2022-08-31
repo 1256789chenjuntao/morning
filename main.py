@@ -239,15 +239,19 @@ data = {
     "color": get_random_color()
   },
   "w":{
-    "value":"澄迈新增："+asymptomNum+"，"+"累计病例："+econNum,
+    "value":"",
     "color":get_random_color_red()
   },
   "x":{
-    "value":"",
+    "value":"澄迈新增"+asymptomNum+"例，"+"累计"+econNum+"例",
   },
   "y": {
-    "value": get_words(),
+    "value": "",
     "color": get_random_color()
+  },
+  "z":{
+    "value":get_words(),
+    "color":get_randmo_color()
   },
 }
 
