@@ -235,7 +235,7 @@ data = {
     "color": get_random_color()
   },
   "w":{
-    "value":"澄迈新增："+today1[13]+","+"累计病例："+total1[10],
+    "value":"澄迈新增："+today1+","+"累计病例："+total1,
   },
   "x":{
     "value":"",
