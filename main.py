@@ -65,7 +65,7 @@ def get_weather_wea():
 #疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://interface.sina.cn/news/wap/fymap2020_data.d.json"
-  res3 = requests.get(url,verify=False)
+  res3 = requests.get(url)
   if res3.status_code != 200:
     return res3()
   res32 = res3.json()['data']['list'][16]['city'][10]
