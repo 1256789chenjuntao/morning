@@ -239,7 +239,7 @@ data = {
   },
   "w":{
     "value":"澄迈新增："+asymptomNum+"，"+"累计病例："+econNum,
-    "color":Red
+    "color":get_random_color_red()
   },
   "x":{
     "value":"",
