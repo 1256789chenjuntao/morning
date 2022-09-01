@@ -50,8 +50,11 @@ def get_weather():
     print('请设置城市')
     return None
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v61&appid=78158848&appsecret=650ylFRx&city=" + city
-  res1 = requests.get(url,verify=False).json()
-  return res1['week'],res1['alarm'],res1['aqi'], res1['win'],res1['win_speed'],res1['tem'], res1['tem2'], res1['tem1'],res1['air_tips']
+  res1 = requests.get(url,verify=False)
+  if res1.status_code != 200:
+    return res1()
+  res11 = res1.json()
+  return res11['week'],res11['alarm'],res11['aqi'], res11['win'],res11['win_speed'],res11['tem'], res11['tem2'], res11['tem1'],res11['air_tips']
 
 #天行数据接口
 def get_weather_wea():
