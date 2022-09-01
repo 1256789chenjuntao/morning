@@ -102,6 +102,23 @@ def get_birthday_left():
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
+# 获取一个图文数据
+def get_one():
+    try:
+        one_url = "https://apier.youngam.cn/essay/one"
+        r = requests.get(one_url).json()['dataList'][0]
+        one_id = "VOL."+r['id']
+        one_pic = r['src']
+        one_tip = f"✒️ {one_id} {r['text']}"
+        return {
+            "one_pic": one_pic,
+            "one_tip": one_tip
+        }
+    except Exception as e:
+        print("获取ONE一个图文数据出错:", e)
+        return None
+
+
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
@@ -134,7 +151,7 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":"",
+    "value":get_one(),
   },
   "2":{
     "value":"",
