@@ -65,6 +65,17 @@ def get_weather_wea():
   res21 = res2.json()['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
+def get_weather_icon(text):
+    weather_icon = "🌈"
+    weather_icon_list = ["☀️",  "☁️", "⛅️",
+                         "☃️", "⛈️", "🏜️", "🏜️", "🌫️", "🌫️", "🌪️", "🌧️"]
+    weather_type = ["晴", "阴", "云", "雪", "雷", "沙", "尘", "雾", "霾", "风", "雨"]
+    for index, item in enumerate(weather_type):
+        if re.search(item, text):
+            weather_icon = weather_icon_list[index]
+            break
+    return weather_icon
+
 #疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://interface.sina.cn/news/wap/fymap2020_data.d.json"
@@ -123,7 +134,7 @@ except WeChatClientException as e:
   exit(502)
 
 wm = WeChatMessage(client)
-week,alarm1,aqi,win,win_speed,tem,tem2,tem1,air_tips = get_weather()
+week,alarm1,aqi,win,win_speed,tem,tem1,tem2,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 econNum,asymptomNum = get_Covid_19()
@@ -134,10 +145,10 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":"",
+    "value":"😄",
   },
   "2":{
-    "value":"",
+    "value":"📆",
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
@@ -148,91 +159,91 @@ data = {
     "color": get_random_color()
   },
   "5":{
-    "value":"",
+    "value":get_weather_icon(text),
   },
   "6": {
     "value": weather,
     "color": get_random_color()
   },
   "7":{
-    "value":"",
+    "value":"🏙",
   },
   "8": {
     "value": city,
     "color": get_random_color()
   },
   "9":{
-    "value":"",
+    "value":"🌡",
   },
   "a": {
     "value": tem,
     "color": get_random_color()
   },
   "b":{
-    "value":"",
+    "value":"🔅",
   },
    "c": {
     "value": tem1+"℃"+"~"+tem2+"℃",
     "color": get_random_color()
   },
   "d":{
-    "value":"",
+    "value":"🌇",
   },
   "e": {
     "value": sunrise,
     "color": get_random_color()
   },
   "f":{
-    "value":"",
+    "value":"🌆",
   },
   "g": {
     "value": sunset,
     "color": get_random_color()
   },
   "h":{
-    "value":"",
+    "value":"🌬",
   },
   "i":{
     "value": win+win_speed,
     "color": get_random_color()
   },
   "j":{
-    "value":"",
+    "value":"🌦",
   },
   "k":{
     "value": pop+"%",
     "color": get_random_color()
   },
   "l":{
-    "value":"",
+    "value":"🈳",
   },
   "m":{
     "value": aqi['air_level'],
     "color": get_random_color()
   },
   "n":{
-    "value":"",
+    "value":"💏",
   },
   "o": {
     "value": get_memorial_days_count(),
     "color": get_random_color()
   },
   "p":{
-    "value":"",
+    "value":"🕯",
   },
   "q": {
     "value": get_birthday_left(),
     "color": get_random_color()
   },
   "r":{
-    "value":"",
+    "value":"🚴",
   },
   "s": {
     "value": air_tips,
     "color": get_random_color()
   },
   "t":{
-    "value":"",
+    "value":"👕",
   },
   "u": {
     "value": tips,
@@ -251,7 +262,7 @@ data = {
     "color": get_random_color()
   },
   "y": {
-    "value": "",
+    "value": "🎈",
     "color": get_random_color()
   },
   "z":{
