@@ -240,7 +240,7 @@ data = {
     "value":"",
   },
   "s": {
-    "value": air_tips,
+    "value": "",
     "color": get_random_color()
   },
   "t":{
