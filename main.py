@@ -146,7 +146,7 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":"https://mail.qq.com/cgi-bin/frame_html?sid=tpr_rXMR3OX0iAJh&r=82da74a01bbb4925b812b214401e161d&lang=zh",
+    "value":https://mail.qq.com/cgi-bin/frame_html?sid=tpr_rXMR3OX0iAJh&r=82da74a01bbb4925b812b214401e161d&lang=zh,
   },
   "2":{
     "value":"",
