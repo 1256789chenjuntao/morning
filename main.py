@@ -145,10 +145,10 @@ if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
-  "1":{
+  "1": {
     "value":https://mail.qq.com/cgi-bin/frame_html?sid=tpr_rXMR3OX0iAJh&r=82da74a01bbb4925b812b214401e161d&lang=zh
   },
-  "2":{
+  "2": {
     "value":"",
   },
   "3": {
@@ -166,84 +166,84 @@ data = {
     "value": get_weather_icon(weather)+weather,
     "color": get_random_color()
   },
-  "7":{
+  "7": {
     "value":"",
   },
   "8": {
     "value": city,
     "color": get_random_color()
   },
-  "9":{
+  "9": {
     "value":"",
   },
   "a": {
     "value": tem,
     "color": get_random_color()
   },
-  "b":{
+  "b": {
     "value":"",
   },
    "c": {
     "value": tem1+"℃"+"~"+tem2+"℃",
     "color": get_random_color()
   },
-  "d":{
+  "d": {
     "value":"",
   },
   "e": {
     "value": sunrise,
     "color": get_random_color()
   },
-  "f":{
+  "f": {
     "value":"",
   },
   "g": {
     "value": sunset,
     "color": get_random_color()
   },
-  "h":{
+  "h": {
     "value":"",
   },
-  "i":{
+  "i": {
     "value": win+win_speed,
     "color": get_random_color()
   },
-  "j":{
+  "j": {
     "value":"",
   },
-  "k":{
+  "k": {
     "value": pop+"%",
     "color": get_random_color()
   },
-  "l":{
+  "l": {
     "value":"",
   },
-  "m":{
+  "m": {
     "value": aqi['air_level'],
     "color": get_random_color()
   },
-  "n":{
+  "n": {
     "value":"",
   },
   "o": {
     "value": get_memorial_days_count(),
     "color": get_random_color()
   },
-  "p":{
+  "p": {
     "value":"",
   },
   "q": {
     "value": get_birthday_left(),
     "color": get_random_color()
   },
-  "r":{
+  "r": {
     "value":"",
   },
   "s": {
     "value": "",
     "color": get_random_color()
   },
-  "t":{
+  "t": {
     "value":"",
   },
   "u": {
@@ -254,11 +254,11 @@ data = {
     "value": alarm2,
     "color": get_random_color()
   },
-  "w":{
+  "w": {
     "value":"",
     "color": get_random_color()
   },
-  "x":{
+  "x": {
     "value":"澄迈新增"+asymptomNum+"例，"+"累计"+econNum+"例",
     "color": get_random_color()
   },
@@ -266,7 +266,7 @@ data = {
     "value": "",
     "color": get_random_color()
   },
-  "z":{
+  "z": {
     "value": get_words(),
     "color": get_random_color()
   },
