@@ -65,17 +65,6 @@ def get_weather_wea():
   res21 = res2.json()['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
-def get_weather_icon(text):
-    weather_icon = "🌈"
-    weather_icon_list = ["☀️",  "☁️", "⛅️",
-                         "☃️", "⛈️", "🏜️", "🏜️", "🌫️", "🌫️", "🌪️", "🌧️"]
-    weather_type = ["晴", "阴", "云", "雪", "雷", "沙", "尘", "雾", "霾", "风", "雨"]
-    for index, item in enumerate(weather_type):
-        if re.search(item, text):
-            weather_icon = weather_icon_list[index]
-            break
-    return weather_icon
-
 #疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://interface.sina.cn/news/wap/fymap2020_data.d.json"
@@ -140,6 +129,17 @@ lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 econNum,asymptomNum = get_Covid_19()
 alarm2 = alarm1.get('alarm_title')
 
+def get_weather_icon(weather):
+    weather_icon = "🌈"
+    weather_icon_list = ["☀️",  "☁️", "⛅️",
+                         "☃️", "⛈️", "🏜️", "🏜️", "🌫️", "🌫️", "🌪️", "🌧️"]
+    weather_type = ["晴", "阴", "云", "雪", "雷", "沙", "尘", "雾", "霾", "风", "雨"]
+    for index, item in enumerate(weather_type):
+        if re.search(item, text):
+            weather_icon = weather_icon_list[index]
+            break
+    return weather_icon
+
 if weather is None:
   print('获取天气失败')
   exit(422)
@@ -159,7 +159,7 @@ data = {
     "color": get_random_color()
   },
   "5":{
-    "value":get_weather_icon(text),
+    "value":get_weather_icon(weather),
   },
   "6": {
     "value": weather,
