@@ -7,6 +7,7 @@ from random import randint
 import math
 import requests
 import os
+import re
 import random
 import emoji
 
@@ -135,7 +136,7 @@ def get_weather_icon(weather):
                          "☃️", "⛈️", "🏜️", "🏜️", "🌫️", "🌫️", "🌪️", "🌧️"]
     weather_type = ["晴", "阴", "云", "雪", "雷", "沙", "尘", "雾", "霾", "风", "雨"]
     for index, item in enumerate(weather_type):
-        if re.search(item, text):
+        if re.search(item, weather):
             weather_icon = weather_icon_list[index]
             break
     return weather_icon
