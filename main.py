@@ -140,14 +140,13 @@ def get_weather_icon(weather):
             weather_icon = weather_icon_list[index]
             break
     return weather_icon
-abc = https://mail.qq.com/cgi-bin/frame_html?sid=tpr_rXMR3OX0iAJh&r=82da74a01bbb4925b812b214401e161d&lang=zh
   
 if weather is None:
   print('获取天气失败')
   exit(422)
 data = {
   "1": {
-    "value":abc,
+    "value":"",
   },
   "2": {
     "value":"",
