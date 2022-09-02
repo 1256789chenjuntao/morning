@@ -146,10 +146,10 @@ if weather is None:
   exit(422)
 data = {
   "1":{
-    "value":"😄",
+    "value":"",
   },
   "2":{
-    "value":"📆",
+    "value":"",
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
@@ -160,91 +160,91 @@ data = {
     "color": get_random_color()
   },
   "5":{
-    "value":get_weather_icon(weather),
+    "value":"",
   },
   "6": {
-    "value": weather,
+    "value": get_weather_icon(weather)+weather,
     "color": get_random_color()
   },
   "7":{
-    "value":"🏙",
+    "value":"",
   },
   "8": {
     "value": city,
     "color": get_random_color()
   },
   "9":{
-    "value":"🌡",
+    "value":"",
   },
   "a": {
     "value": tem,
     "color": get_random_color()
   },
   "b":{
-    "value":"🔅",
+    "value":"",
   },
    "c": {
     "value": tem1+"℃"+"~"+tem2+"℃",
     "color": get_random_color()
   },
   "d":{
-    "value":"🌇",
+    "value":"",
   },
   "e": {
     "value": sunrise,
     "color": get_random_color()
   },
   "f":{
-    "value":"🌆",
+    "value":"",
   },
   "g": {
     "value": sunset,
     "color": get_random_color()
   },
   "h":{
-    "value":"🌬",
+    "value":"",
   },
   "i":{
     "value": win+win_speed,
     "color": get_random_color()
   },
   "j":{
-    "value":"🌦",
+    "value":"",
   },
   "k":{
     "value": pop+"%",
     "color": get_random_color()
   },
   "l":{
-    "value":"🈳",
+    "value":"",
   },
   "m":{
     "value": aqi['air_level'],
     "color": get_random_color()
   },
   "n":{
-    "value":"💏",
+    "value":"",
   },
   "o": {
     "value": get_memorial_days_count(),
     "color": get_random_color()
   },
   "p":{
-    "value":"🕯",
+    "value":"",
   },
   "q": {
     "value": get_birthday_left(),
     "color": get_random_color()
   },
   "r":{
-    "value":"🚴",
+    "value":"",
   },
   "s": {
     "value": air_tips,
     "color": get_random_color()
   },
   "t":{
-    "value":"👕",
+    "value":"",
   },
   "u": {
     "value": tips,
@@ -263,7 +263,7 @@ data = {
     "color": get_random_color()
   },
   "y": {
-    "value": "🎈",
+    "value": "",
     "color": get_random_color()
   },
   "z":{
