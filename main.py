@@ -33,6 +33,18 @@ r = int(birthday[8:])
 birthday1 = LunarDate(lubaryear1, y, r)#构建农历日期
 birthday2 = birthday1.to_solar_date()#转化成公历日期，输出为字符串
 
+yuandan = datetime.strptime(str(today.year) + "-" + "01" + "-" + "01", "%Y-%m-%d")#元旦
+spring_festival1 = LunarDate(lubaryear1, 01, 01)#春节
+spring_festival2 = spring_festival1.to_solar_date()
+ching_ming_festival1 = LunarDate(lubaryear1, 03, 05)#清明节
+ching_ming_festival2 = ching_ming_festival1.to_solar_date()
+laodonngjie = datetime.strptime(str(today.year) + "-" + "05" + "-" + "01", "%Y-%m-%d")#劳动节
+duanwu1 = LunarDate(lubaryear1, 05, 05)#端午节
+duanwu2 = duanwu1.to_solar_date()
+mid_autumn_festival1 = LunarDate(lubaryear1, 08, 15)#中秋节
+mid_autumn_festival2 = mid_autumn_festival1.to_solar_date()
+guoqing = datetime.strptime(str(today.year) + "-" + "10" + "-" + "01", "%Y-%m-%d")#国庆节
+
 if app_id is None or app_secret is None:
   print('请设置 APP_ID 和 APP_SECRET')
   exit(422)
@@ -98,10 +110,34 @@ def get_birthday_left():
   if birthday is None:
     print('没有设置 BIRTHDAY')
     return 0
-  next = datetime.strptime(birthday2.strftime("%Y-%m-%d"), "%Y-%m-%d")#先转换成datetime.date类型,再转换成datetime.datetime
+  next = datetime.strptime(spring_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")#先转换成datetime.date类型,再转换成datetime.datetime
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
+
+def get_Holidays():
+  next1 = datetime.strptime(yuandan.strftime("%Y-%m-%d"),#先转换成datetime.date类型,再转换成datetime.datetime
+  next2 = datetime.strptime(spring_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next3 = datetime.strptime(ching_ming_festival1.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next4 = datetime.strptime(laodonngjie.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next5 = datetime.strptime(duanwu2.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next6 = datetime.strptime(mid_autumn_festival1.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next7 = datetime.strptime(guoqing.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  if next1 < datetime.now():
+    return None
+  if next2 < datetime.now():
+    return None
+  if next3 < datetime.now():
+    return None
+  if next4 < datetime.now():
+    return None
+  if next5 < datetime.now():
+    return None
+  if next6 < datetime.now():
+    return None
+  if next7 < datetime.now():
+    return None
+  return (next1 - today).days,(next2 - today).days,(next3 - today).days,(next4 - today).days,(next5 - today).days,(next6 - today).days,(next6 - today).days
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
@@ -263,7 +299,7 @@ data = {
     "color": get_random_color()
   },
   "y": {
-    "value": "",
+    "value": get_Holidays(),
     "color": get_random_color()
   },
   "z": {
