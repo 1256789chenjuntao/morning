@@ -34,14 +34,14 @@ birthday1 = LunarDate(lubaryear1, y, r)#构建农历日期
 birthday2 = birthday1.to_solar_date()#转化成公历日期，输出为字符串
 
 yuandan = datetime.strptime(str(today.year) + "-" + "01" + "-" + "01", "%Y-%m-%d")#元旦
-spring_festival1 = LunarDate(lubaryear1, 01, 01)#春节
+spring_festival1 = LunarDate(lubaryear1, 1, 1)#春节
 spring_festival2 = spring_festival1.to_solar_date()
-ching_ming_festival1 = LunarDate(lubaryear1, 03, 05)#清明节
+ching_ming_festival1 = LunarDate(lubaryear1, 3, 5)#清明节
 ching_ming_festival2 = ching_ming_festival1.to_solar_date()
 laodonngjie = datetime.strptime(str(today.year) + "-" + "05" + "-" + "01", "%Y-%m-%d")#劳动节
-duanwu1 = LunarDate(lubaryear1, 05, 05)#端午节
+duanwu1 = LunarDate(lubaryear1, 5, 5)#端午节
 duanwu2 = duanwu1.to_solar_date()
-mid_autumn_festival1 = LunarDate(lubaryear1, 08, 15)#中秋节
+mid_autumn_festival1 = LunarDate(lubaryear1, 8, 15)#中秋节
 mid_autumn_festival2 = mid_autumn_festival1.to_solar_date()
 guoqing = datetime.strptime(str(today.year) + "-" + "10" + "-" + "01", "%Y-%m-%d")#国庆节
 
