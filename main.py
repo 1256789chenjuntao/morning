@@ -121,7 +121,7 @@ def get_Holidays():
   next3 = datetime.strptime(ching_ming_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next4 = datetime.strptime(laodonngjie.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next5 = datetime.strptime(duanwu2.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next6 = datetime.strptime(mid_autumn_festival1.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next6 = datetime.strptime(mid_autumn_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next7 = datetime.strptime(guoqing.strftime("%Y-%m-%d"), "%Y-%m-%d")
   if next1 < datetime.now():
     return None
