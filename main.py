@@ -36,7 +36,7 @@ birthday2 = birthday1.to_solar_date()#转化成公历日期，输出为字符串
 yuandan = datetime.strptime(str(today.year) + "-" + "01" + "-" + "01", "%Y-%m-%d")#元旦
 spring_festival1 = LunarDate(lubaryear1, 1, 1)#春节
 spring_festival2 = spring_festival1.to_solar_date()
-ching_ming_festival1 = LunarDate(2022, 3, 5)#清明节
+ching_ming_festival1 = LunarDate(lubaryear1, 3, 5)#清明节
 ching_ming_festival2 = ching_ming_festival1.to_solar_date()
 laodonngjie = datetime.strptime(str(today.year) + "-" + "05" + "-" + "01", "%Y-%m-%d")#劳动节
 duanwu1 = LunarDate(lubaryear1, 5, 5)#端午节
@@ -116,13 +116,13 @@ def get_birthday_left():
   return (next - today).days
 
 def get_Holidays():
-  next1 = datetime.strptime(yuandan.strftime("%Y-%m-%d"), "%Y-%m-%d")#先转换成datetime.date类型,再转换成datetime.datetime
+  next1 = datetime.strptime(yuandan, "%Y-%m-%d")#先转换成datetime.date类型,再转换成datetime.datetime
   next2 = datetime.strptime(spring_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next3 = datetime.strptime(ching_ming_festival1.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next4 = datetime.strptime(laodonngjie.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next3 = datetime.strptime(ching_ming_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next4 = datetime.strptime(laodonngjie, "%Y-%m-%d")
   next5 = datetime.strptime(duanwu2.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next6 = datetime.strptime(mid_autumn_festival1.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next7 = datetime.strptime(guoqing.strftime("%Y-%m-%d"), "%Y-%m-%d")
+  next7 = datetime.strptime(guoqing, "%Y-%m-%d")
   if next1 < datetime.now():
     return None
   if next2 < datetime.now():
