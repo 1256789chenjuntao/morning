@@ -116,7 +116,7 @@ def get_birthday_left():
   return (next - today).days
 
 def get_Holidays():
-  next1 = datetime.strptime(yuandan.strftime("%Y-%m-%d"),#先转换成datetime.date类型,再转换成datetime.datetime
+  next1 = datetime.strptime(yuandan.strftime("%Y-%m-%d"), "%Y-%m-%d")#先转换成datetime.date类型,再转换成datetime.datetime
   next2 = datetime.strptime(spring_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next3 = datetime.strptime(ching_ming_festival1.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next4 = datetime.strptime(laodonngjie.strftime("%Y-%m-%d"), "%Y-%m-%d")
