@@ -211,7 +211,7 @@ sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 econNum,asymptomNum = get_Covid_19()
 jieri = get_yuandan(),get_chunjie(),get_taqing(),get_laodong(),get_duanwu(),get_zhongqiu(),get_guoqing()
-jieqi2 = list(filter(None, jieri)) 
+jieri2 = list(filter(None, jieri)) 
 alarm2 = alarm1.get('alarm_title')
 
 def get_weather_icon(weather):
