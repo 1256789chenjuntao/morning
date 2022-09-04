@@ -253,7 +253,7 @@ data = {
     "value":"",
   },
   "8": {
-    "value": jieri,
+    "value": city,
     "color": get_random_color()
   },
   "9": {
