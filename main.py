@@ -123,11 +123,11 @@ def get_Holidays():
   next5 = datetime.strptime(duanwu2.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next6 = datetime.strptime(mid_autumn_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
   next7 = datetime.strptime(guoqing.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  if next1 < datetime.now():
+  if next1 < today:
     return None
-  if next2 < datetime.now():
+  if next2 < today:
     return None
-  if next3 < datetime.now():
+  if next3 < today:
     return None
   if next4 < datetime.now():
     return None
