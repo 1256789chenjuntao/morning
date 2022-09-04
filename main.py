@@ -33,18 +33,6 @@ r = int(birthday[8:])
 birthday1 = LunarDate(lubaryear1, y, r)#构建农历日期
 birthday2 = birthday1.to_solar_date()#转化成公历日期，输出为字符串
 
-yuandan = datetime.strptime(str(today.year) + "-" + "01" + "-" + "01", "%Y-%m-%d")#元旦
-spring_festival1 = LunarDate(lubaryear1, 1, 1)#春节
-spring_festival2 = spring_festival1.to_solar_date()
-ching_ming_festival1 = LunarDate(lubaryear1, 3, 5)#清明节
-ching_ming_festival2 = ching_ming_festival1.to_solar_date()
-laodonngjie = datetime.strptime(str(today.year) + "-" + "05" + "-" + "01", "%Y-%m-%d")#劳动节
-duanwu1 = LunarDate(lubaryear1, 5, 5)#端午节
-duanwu2 = duanwu1.to_solar_date()
-mid_autumn_festival1 = LunarDate(lubaryear1, 8, 15)#中秋节
-mid_autumn_festival2 = mid_autumn_festival1.to_solar_date()
-guoqing = datetime.strptime(str(today.year) + "-" + "10" + "-" + "01", "%Y-%m-%d")#国庆节
-
 if app_id is None or app_secret is None:
   print('请设置 APP_ID 和 APP_SECRET')
   exit(422)
@@ -115,29 +103,87 @@ def get_birthday_left():
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
-def get_Holidays():
-  next1 = datetime.strptime(yuandan.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next2 = datetime.strptime(spring_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next3 = datetime.strptime(ching_ming_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next4 = datetime.strptime(laodonngjie.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next5 = datetime.strptime(duanwu2.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next6 = datetime.strptime(mid_autumn_festival2.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  next7 = datetime.strptime(guoqing.strftime("%Y-%m-%d"), "%Y-%m-%d")
-  if next1 < today:
-    return None
-  if next2 < today:
-    return None
-  if next3 < today:
-    return None
-  if next4 < datetime.now():
-    return None
-  if next5 < datetime.now():
-    return None
-  if next6 < datetime.now():
-    return None
-  if next7 < datetime.now():
-    return None
-  return (next1 - today).days,(next2 - today).days,(next3 - today).days,(next4 - today).days,(next5 - today).days,(next6 - today).days,(next6 - today).days
+#元旦节倒计时
+def get_yuandan():
+  yuandan = datetime.strptime(str(today.year) + "-" + "01" + "-" + "01", "%Y-%m-%d")#元旦
+  next1 = (datetime.strptime(yuandan.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
+  if next1<0 or next1>15:
+      return None
+  elif next1>0 and next1<=15:
+      next1 = "距离元旦还有"+str(next1)+"天"
+  else:
+      next1 = "元旦快乐！！！"
+  return next1
+
+#春节倒计时
+def get_chunjie():
+  spring_festival = LunarDate(lubaryear1, 1, 1).to_solar_date()
+  next2 = (datetime.strptime(spring_festival.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
+  if next2<0 or next2>15:
+      return None
+  elif next2>0 and next2<=15:
+      next2 = "距离大年初一还有"+str(next2)+"天"
+  else:
+      next2 = "过年好！恭喜发财"
+  return next2
+
+#踏青节倒计时
+def get_taqing():
+  sching_ming_festival = LunarDate(lubaryear1, 3, 5).to_solar_date()
+  next3 = (datetime.strptime(sching_ming_festival.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
+  if next3<0 and next3>0:
+      return None
+  else:
+      next3 = "况是清明好天气，不妨游衍莫忘归"
+  return next3
+
+#劳动节倒计时
+def get_laodong():
+  laodonng = datetime.strptime(str(today.year) + "-" + "05" + "-" + "01", "%Y-%m-%d")
+  next4 = (datetime.strptime(laodong.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
+  if next4<0 or next4>15:
+      return None
+  elif next4>0 and next4<=15:
+      next4 = "距离劳动节还有"+str(next4)+"天"
+  else:
+      next4 = "三天休息日"
+  return next4
+
+#端午节倒计时
+def get_duanwu():
+  duanwu = LunarDate(lubaryear1, 5, 5).to_solar_date()
+  next5 = (datetime.strptime(duanwu.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
+  if next5<0 or next5>15:
+      return None
+  elif next5>0 and next5 <= 15:
+      next5 = "距离端午节还有"+str(next5)+"天"
+  else:
+      next5 = "今日宜划龙舟，吃粽子"
+  return next5
+
+#中秋节倒计时
+def get_zhongqiu():
+  mid_autumn_festival = LunarDate(lubaryear1, 8, 15).to_solar_date()
+  next6 = (datetime.strptime(mid_autumn_festival.strftime("%Y-%m-%d"), "%Y-%m-%d")- today).days
+  if  next6< 0:
+      return None
+  elif next6 > 0 and next6 <= 15:
+      next6 = "距离中秋节还有"+str(next6)+"天"
+  else:
+      next6 = "春江潮水连海平，莲蓉豆沙冰淇淋"
+  return next6
+
+#国庆节节倒计时
+def get_guoqing():
+  guoqing = datetime.strptime(str(today.year) + "-" + "10" + "-" + "01", "%Y-%m-%d")
+  next7 = (datetime.strptime(guoqing.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
+  if next7<0 or next7>15:
+      return None
+  elif next7>0 and next7<=15:
+      next7 = "距离国庆节还有"+str(next7)+"天"
+  else:
+      next7 = "生在红旗下，长在春风里"
+  return next7
 
 # 彩虹屁 接口不稳定，所以失败的话会重新调用，直到成功
 def get_words():
@@ -196,7 +242,7 @@ data = {
     "color": get_random_color()
   },
   "5":{
-    "value":"",
+    "value":get_yuandan()+get_chunjie()+get_taqing()+get_laodong()+get_duanwu()+get_zhongqiu()+get_guoqing(),
   },
   "6": {
     "value": get_weather_icon(weather)+weather,
