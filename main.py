@@ -68,12 +68,15 @@ def get_weather_wea():
 
 #疫情接口，还没有调试成功，可删除
 def get_Covid_19():
-  url = "https://interface.sina.cn/news/wap/fymap2020_data.d.json"
+  url = "https://covid.myquark.cn/quark/covid/data?city=" + city
   res3 = requests.get(url)
   if res3.status_code != 200:
     return res3()
-  res32 = res3.json()['data']['list'][16]['city'][10]
-  return res32['econNum'],res32['asymptomNum']
+  if city in ["北京", "上海", "天津", "重庆", "香港", "澳门", "台湾"]:
+       city_data = res3["provinceData"]
+   else:
+       city_data = res3["cityData"]
+  return city_data["sure_new_loc"],city_data["sure_new_hid"],city_data["present"],city_data["danger"]["1"], city_data["danger"]["2"]
 
 #农历接口
 def get_lunar_calendar():
@@ -209,7 +212,7 @@ wm = WeChatMessage(client)
 week,alarm1,aqi,win,win_speed,tem,tem1,tem2,air_tips = get_weather()
 sunrise,sunset,tips,weather,pop = get_weather_wea()
 lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
-econNum,asymptomNum = get_Covid_19()
+sure_new_loc,sure_new_hid,present,danger1,danger2 = get_Covid_19()
 jieri = get_yuandan(),get_chunjie(),get_taqing(),get_laodong(),get_duanwu(),get_zhongqiu(),get_guoqing()
 jieri2 = ''.join(list(filter(None, jieri)))
 alarm2 = alarm1.get('alarm_title')
@@ -233,7 +236,7 @@ data = {
     "value":"",
   },
   "2": {
-    "value":None,
+    "value":"",
   },
   "3": {
     "value":today.strftime('%Y年%m月%d日')+week,
@@ -248,110 +251,142 @@ data = {
     "color": get_random_color()
   },
   "6": {
-    "value": get_weather_icon(weather)+weather,
+    "value": "",
     "color": get_random_color()
   },
   "7": {
-    "value":"",
+    "value": get_weather_icon(weather)+weather,
+    "color": get_random_color()
   },
   "8": {
-    "value": city,
+    "value": "",
     "color": get_random_color()
   },
   "9": {
-    "value":"",
+    "value": city,
+    "color": get_random_color()
   },
   "a": {
-    "value": tem,
+    "value": "",
     "color": get_random_color()
   },
   "b": {
-    "value":"",
+    "value": tem,
+    "color": get_random_color()
   },
    "c": {
-    "value": tem1+"℃"+"~"+tem2+"℃",
+    "value": "",
     "color": get_random_color()
   },
   "d": {
-    "value":"",
+    "value": tem1+"℃"+"~"+tem2+"℃",
+    "color": get_random_color()
   },
   "e": {
-    "value": sunrise,
+    "value": "",
     "color": get_random_color()
   },
   "f": {
-    "value":"",
+    "value": sunrise,
+    "color": get_random_color()
   },
   "g": {
-    "value": sunset,
+    "value": "",
     "color": get_random_color()
   },
   "h": {
-    "value":"",
+    "value": sunset,
+    "color": get_random_color()
   },
   "i": {
-    "value": win+win_speed,
+    "value": "",
     "color": get_random_color()
   },
   "j": {
-    "value":"",
+    "value": win+win_speed,
+    "color": get_random_color()
   },
   "k": {
-    "value": pop+"%",
+    "value": "",
     "color": get_random_color()
   },
   "l": {
-    "value":"",
+    "value": pop+"%",
+    "color": get_random_color()
   },
   "m": {
-    "value": aqi['air_level'],
+    "value": "",
     "color": get_random_color()
   },
   "n": {
-    "value":"",
+    "value": aqi['air_level'],
+    "color": get_random_color()
   },
   "o": {
-    "value": get_memorial_days_count(),
+    "value": "",
     "color": get_random_color()
   },
   "p": {
-    "value":"",
+    "value": sure_new_loc,
+    "color": get_random_color()
   },
   "q": {
-    "value": get_birthday_left(),
+    "value": "",
     "color": get_random_color()
   },
   "r": {
-    "value":"",
+    "value": sure_new_hid,
+    "color": get_random_color()
   },
   "s": {
     "value": "",
     "color": get_random_color()
   },
   "t": {
-    "value":"",
+    "value": present,
+    "color": get_random_color()
   },
   "u": {
-    "value": tips,
-    "color": get_random_color()
-  },
-  "v": {
-    "value": alarm2,
-    "color": get_random_color()
-  },
-  "w": {
-    "value":"",
-    "color": get_random_color()
-  },
-  "x": {
-    "value":"澄迈新增"+asymptomNum+"例，"+"累计"+econNum+"例",
-    "color": get_random_color()
-  },
-  "y": {
     "value": "",
     "color": get_random_color()
   },
+  "v": {
+    "value": danger1+"/"+danger2,
+    "color": get_random_color()
+  },
+  "w": {
+    "value": alarm2,
+    "color": get_random_color()
+  },
+  "x": {
+    "value": "",
+    "color": get_random_color()
+  },
+  "y": {
+    "value": get_memorial_days_count(),
+    "color": get_random_color()
+  },
   "z": {
+    "value": "",
+    "color": get_random_color()
+  },
+  "A": {
+    "value": get_birthday_left(),
+    "color": get_random_color()
+  },
+  "B": {
+    "value": "",
+    "color": get_random_color()
+  },
+  "C": {
+    "value": tips,
+    "color": get_random_color()
+  },
+  "D": {
+    "value": "",
+    "color": get_random_color()
+  },
+  "E": {
     "value": get_words(),
     "color": get_random_color()
   },
