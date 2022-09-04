@@ -351,7 +351,7 @@ data = {
     "color": get_random_color()
   },
   "v": {
-    "value": danger1+"/"+danger2,
+    "value": str(danger1)+"/"+str(danger2),
     "color": get_random_color()
   },
   "w": {
