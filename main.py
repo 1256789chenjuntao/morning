@@ -139,7 +139,7 @@ def get_taqing():
 
 #劳动节倒计时
 def get_laodong():
-  laodonng = datetime.strptime(str(today.year) + "-" + "05" + "-" + "01", "%Y-%m-%d")
+  laodong = datetime.strptime(str(today.year) + "-" + "05" + "-" + "01", "%Y-%m-%d")
   next4 = (datetime.strptime(laodong.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
   if next4<0 or next4>15:
       return None
