@@ -212,6 +212,7 @@ lubarmonth,lunarday,jieqi,lunar_festival,festival = get_lunar_calendar()
 econNum,asymptomNum = get_Covid_19()
 jieri = get_yuandan(),get_chunjie(),get_taqing(),get_laodong(),get_duanwu(),get_zhongqiu(),get_guoqing()
 jieri2 = list(filter(None, jieri)) 
+jieri3 = ''.join(jieri2)
 alarm2 = alarm1.get('alarm_title')
 
 def get_weather_icon(weather):
@@ -244,7 +245,7 @@ data = {
     "color": get_random_color()
   },
   "5":{
-    "value":jieri2,
+    "value":jieri3,
   },
   "6": {
     "value": get_weather_icon(weather)+weather,
