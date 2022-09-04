@@ -73,9 +73,9 @@ def get_Covid_19():
   if res3.status_code != 200:
     return res3()
   if city in ["北京", "上海", "天津", "重庆", "香港", "澳门", "台湾"]:
-       city_data = res3["provinceData"]
-   else:
-       city_data = res3["cityData"]
+      city_data = res3["provinceData"]
+  else:
+      city_data = res3["cityData"]
   return city_data["sure_new_loc"],city_data["sure_new_hid"],city_data["present"],city_data["danger"]["1"], city_data["danger"]["2"]
 
 #农历接口
