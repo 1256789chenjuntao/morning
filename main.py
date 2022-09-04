@@ -69,13 +69,13 @@ def get_weather_wea():
 #疫情接口，还没有调试成功，可删除
 def get_Covid_19():
   url = "https://covid.myquark.cn/quark/covid/data?city=" + city
-  res3 = (requests.get(url)).json()
+  res3 = requests.get(url)
   if res3.status_code != 200:
     return res3()
   if city in ["北京", "上海", "天津", "重庆", "香港", "澳门", "台湾"]:
-      res31 = res3["provinceData"]
+      res31 = res3.json()["provinceData"]
   else:
-      res31 = res3["cityData"]
+      res31 = res3.json()["cityData"]
   return res31["sure_new_loc"],res31["sure_new_hid"],res31["present"],res31["danger"]["1"], res31["danger"]["2"]
 
 #农历接口
