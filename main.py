@@ -346,7 +346,7 @@ data = {
     "color": get_random_color()
   },
   "y": {
-    "value": get_Holidays(),
+    "value": "",
     "color": get_random_color()
   },
   "z": {
