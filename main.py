@@ -131,7 +131,7 @@ def get_chunjie():
 def get_taqing():
   sching_ming_festival = LunarDate(lubaryear1, 3, 5).to_solar_date()
   next3 = (datetime.strptime(sching_ming_festival.strftime("%Y-%m-%d"), "%Y-%m-%d")-today).days
-  if next3<0 and next3>0:
+  if next3<0 or next3>0:
       return None
   else:
       next3 = "况是清明好天气，不妨游衍莫忘归"
