@@ -23,7 +23,8 @@ app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
 
 user_ids = os.getenv('USER_ID', '').split("\n")
-template_id = os.getenv('TEMPLATE_ID')
+template_id1 = os.getenv('TEMPLATE_ID1')
+template_id2 = os.getenv('TEMPLATE_ID2')
 
 #为读取农历生日准备
 lubaryear1 = today1.year
@@ -396,7 +397,7 @@ if __name__ == '__main__':
   count = 0
   try:
     for user_id in user_ids:
-      res = wm.send_template(user_id, template_id, data)
+      res = wm.send_template(user_id, template_id1,template_id2, data)
       count+=1
   except WeChatClientException as e:
     print('微信端返回错误：%s。错误代码：%d' % (e.errmsg, e.errcode))
