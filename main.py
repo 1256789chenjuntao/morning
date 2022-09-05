@@ -23,7 +23,7 @@ app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
 
 user_ids = os.getenv('USER_ID', '').split("\n")
-url="https://mail.qq.com/cgi-bin/frame_html?sid=wOwOg101XmdyqSNA&r=dd5050b65a6f41b52e4ebcd043303f02&lang=zh"
+url="https://lab.magiconch.com/sakana/?v=takina"
 template_id = os.getenv('TEMPLATE_ID')
 #template_id = os.getenv('TEMPLATE_ID')
 
