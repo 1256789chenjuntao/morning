@@ -43,7 +43,11 @@ if not user_ids:
   exit(422)
 
 if template_id1 is None:
-  print('请设置 TEMPLATE_ID')
+  print('请设置 TEMPLATE_ID1')
+  exit(422)
+  
+if template_id2 is None:
+  print('请设置 TEMPLATE_ID2')
   exit(422)
 
 # weather 直接返回对象，在使用的地方用字段进行调用。
