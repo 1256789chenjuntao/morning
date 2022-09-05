@@ -78,7 +78,7 @@ def get_xingzuo():
   if xingzuo.status_code != 200:
     return get_xingzuo()
   data = xingzuo.json()['newslist'][0]
-  data = "今天的幸运颜色："+str(data["newslist"][5]["content"])+"\n天蝎座的你今日爱情指数："+str(data["newslist"][1]["content"])+"\n速配星座："+str(data["newslist"][7]["content"])+"\n财运指数："+str(data["newslist"][3]["content"])+"\n今天的你："+str(data["newslist"][8]["content"])
+  data = "今天的幸运颜色："+str(data[5]["content"])+"\n天蝎座的你今日爱情指数："+str(data[1]["content"])+"\n速配星座："+str(data[7]["content"])+"\n财运指数："+str(data[3]["content"])+"\n今天的你："+str(data[8]["content"])
   return data
 
 #疫情接口，还没有调试成功，可删除
