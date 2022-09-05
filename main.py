@@ -355,7 +355,7 @@ data = {
     "color": get_random_color()
   },
   "w": {
-    "value": "123456789abcdefghijklmnopqistuvwxyzASDFGHJKLPOIUYTREWQZXCVBNM",
+    "value": alarm2,
     "color": get_random_color()
   },
   "x": {
