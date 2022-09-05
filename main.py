@@ -42,7 +42,7 @@ if not user_ids:
   print('请设置 USER_ID，若存在多个 ID 用空格分开')
   exit(422)
 
-if template_id is None:
+if template_id1 is None:
   print('请设置 TEMPLATE_ID')
   exit(422)
 
