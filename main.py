@@ -72,6 +72,7 @@ def get_weather_wea():
   res21 = res2.json()['newslist'][0]
   return res21['sunrise'],res21['sunset'],res21['tips'],res21['weather'],res21['pop']
 
+#星座
 def get_xingzuo():
   url = "http://api.tianapi.com/star/index?key=d5edced4967c76fd11899dbe1b753d91&astro=双鱼座"
   xingzuo = requests.get(url,verify=False)
@@ -81,7 +82,7 @@ def get_xingzuo():
   data = "今天的幸运颜色："+str(data['newslist'][5]["content"])+"\n双鱼座的你今日爱情指数："+str(data['newslist'][1]["content"])+"\n速配星座："+str(data['newslist'][7]["content"])+"\n财运指数："+str(data['newslist'][3]["content"])+"\n今天的你："+str(data['newslist'][8]["content"])
   return data
 
-#疫情接口，还没有调试成功，可删除
+#疫情接口
 def get_Covid_19():
   url = "https://covid.myquark.cn/quark/covid/data?city=" + city
   res3 = requests.get(url)
