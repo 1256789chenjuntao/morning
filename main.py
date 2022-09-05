@@ -23,8 +23,8 @@ app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
 
 user_ids = os.getenv('USER_ID', '').split("\n")
-template_id1 = os.getenv('TEMPLATE_ID')
-template_id2 = os.getenv('TEMPLATE_ID')
+template_id = os.getenv('TEMPLATE_ID')
+template_id = os.getenv('TEMPLATE_ID')
 
 #为读取农历生日准备
 lubaryear1 = today1.year
@@ -42,13 +42,13 @@ if not user_ids:
   print('请设置 USER_ID，若存在多个 ID 用空格分开')
   exit(422)
 
-if template_id1 is None:
+if template_id is None:
   print('请设置 TEMPLATE_ID1')
   exit(422)
   
-if template_id2 is None:
-  print('请设置 TEMPLATE_ID2')
-  exit(422)
+#if template_id2 is None:
+  #print('请设置 TEMPLATE_ID2')
+  #exit(422)
 
 # weather 直接返回对象，在使用的地方用字段进行调用。
 def get_weather():
@@ -401,7 +401,7 @@ if __name__ == '__main__':
   count = 0
   try:
     for user_id in user_ids:
-      res = wm.send_template(user_id, template_id1,template_id2, data)
+      res = wm.send_template(user_id, template_id data)
       count+=1
   except WeChatClientException as e:
     print('微信端返回错误：%s。错误代码：%d' % (e.errmsg, e.errcode))
