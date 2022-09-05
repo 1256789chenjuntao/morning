@@ -23,8 +23,8 @@ app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
 
 user_ids = os.getenv('USER_ID', '').split("\n")
-template_id1 = os.getenv('TEMPLATE_ID1')
-template_id2 = os.getenv('TEMPLATE_ID2')
+template_id1 = os.getenv('TEMPLATE_ID')
+template_id2 = os.getenv('TEMPLATE_ID')
 
 #为读取农历生日准备
 lubaryear1 = today1.year
