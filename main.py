@@ -399,7 +399,7 @@ data = {
     "color": get_random_color()
   },
   "D": {
-    "value": "",
+    "value": get_xingzuo(),
     "color": get_random_color()
   },
   "E": {
