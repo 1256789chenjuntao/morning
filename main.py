@@ -352,11 +352,11 @@ data = {
   },
   "v": {
     "value": str(danger1)+"/"+str(danger2),
-    "color": #FF0000
+    "color": "#FF0000"
   },
   "w": {
     "value": alarm2,
-    "color": #FF0000
+    "color": "#FF0000"
   },
   "x": {
     "value": "",
