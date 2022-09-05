@@ -23,8 +23,8 @@ app_id = os.getenv('APP_ID')
 app_secret = os.getenv('APP_SECRET')
 
 user_ids = os.getenv('USER_ID', '').split("\n")
-template_id = os.getenv('TEMPLATE_ID')
-template_id = os.getenv('TEMPLATE_ID')
+template_id = os.getenv('TEMPLATE_ID'),"url":"https://mail.qq.com/cgi-bin/frame_html?sid=wOwOg101XmdyqSNA&r=dd5050b65a6f41b52e4ebcd043303f02&lang=zh"
+#template_id = os.getenv('TEMPLATE_ID')
 
 #为读取农历生日准备
 lubaryear1 = today1.year
@@ -401,7 +401,7 @@ if __name__ == '__main__':
   count = 0
   try:
     for user_id in user_ids:
-      res = wm.send_template(user_id, template_id data)
+      res = wm.send_template(user_id, template_id, data)
       count+=1
   except WeChatClientException as e:
     print('微信端返回错误：%s。错误代码：%d' % (e.errmsg, e.errcode))
