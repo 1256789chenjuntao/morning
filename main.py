@@ -158,6 +158,15 @@ def get_laodong():
       next4 = "三天休息日"
   return next4
 
+def get_weather_wea():
+  url = "http://api.tianapi.com/star/index?key=d5edced4967c76fd11899dbe1b753d91&astro=taurus"
+  data = requests.get(url,verify=False)
+  if data.status_code != 200:
+    return data()
+  data = data.json()['newslist'][0]
+  data = "今天的幸运颜色："+str(data["newslist"][5]["content"])+"\n天蝎座的你今日爱情指数："+str(data["newslist"][1]["content"])+"\n速配星座："+str(data["newslist"][7]["content"])+"\n财运指数："+str(data["newslist"][3]["content"])+"\n今天的你："+str(data["newslist"][8]["content"])
+  return data
+
 #端午节倒计时
 def get_duanwu():
   duanwu = LunarDate(lubaryear1, 5, 5).to_solar_date()
